@@ -1,2 +1,2 @@
-public class ThuThu {
+public class ThuThu extends NguoiDung{
 }

@@ -1,3 +1,3 @@
-public class QuanLy {
+public class QuanLy extends NguoiDung{
 
 }
