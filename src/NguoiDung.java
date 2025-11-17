@@ -46,15 +46,15 @@ public class NguoiDung {
     public void NhapTT()
     {
         System.out.print("Hay Nhap Ten:");
-         Ten = sc.nextLine();
+        this.setTen(sc.nextLine());
         System.out.println("Hay nhap Ma So:");
-        MaSo = sc.nextLine();
+        this.setMaSo(sc.nextLine());
         System.out.println("Hay nhap email: ");
-        Email = sc.nextLine();
+        this.setEmail(sc.nextLine());
         System.out.println("Hay nhap So Dien Thoai: ");
-        SDT = sc.nextLine();
+        this.setSDT(sc.nextLine());
         System.out.println("Hay nhap dia chi:");
-        DiaChi = sc.nextLine();
+        this.setDiaChi(sc.nextLine());
     }
 
     public String toString()
