@@ -46,17 +46,29 @@ public class NguoiDung {
     public void setSDT(String SDT) {
         this.SDT = SDT;
     }
+    public NguoiDung(){
+
+    }
+
+    public NguoiDung(String Ten, int MaSo, String Email, String SDT, String DiaChi) {
+        this.Ten = Ten;
+        this.MaSo = MaSo;
+        this.Email = Email;
+        this.SDT = SDT;
+        this.DiaChi = DiaChi;
+    }
+
     public void NhapTT()
     {
-        System.out.print("Hay Nhap Ten:");
+        System.out.print("Hãy Nhập Tên:");
         this.setTen(sc.nextLine());
-        System.out.println("Hay nhap Ma So:");
+        System.out.println("Hãy Nhâp Mã Số:");
         this.setMaSo(Integer.parseInt(sc.nextLine()));
-        System.out.println("Hay nhap email: ");
+        System.out.println("Hãy Nhập Email: ");
         this.setEmail(sc.nextLine());
-        System.out.println("Hay nhap So Dien Thoai: ");
+        System.out.println("Hãy Nhập Số Điện Thoại: ");
         this.setSDT(sc.nextLine());
-        System.out.println("Hay nhap dia chi:");
+        System.out.println("Hãy Nhập Địa Chỉ:");
         this.setDiaChi(sc.nextLine());
     }
 
