@@ -9,6 +9,14 @@ public class SinhVien extends NguoiDung{
     private boolean phatTraSachMuon = false;
     private LocalDate ngayVaoTV;
 
+    public boolean isPhatTraSachMuon() {
+        return phatTraSachMuon;
+    }
+
+    public void setPhatTraSachMuon(boolean phatTraSachMuon) {
+        this.phatTraSachMuon = phatTraSachMuon;
+    }
+
     public String getMssv() {
         return mssv;
     }
@@ -21,7 +29,12 @@ public class SinhVien extends NguoiDung{
         return theTV;
     }
 
-    public void settheTV(int theTV) {
+    public void settheTV(int theTV) throws Exception {
+
+        if(theTV <0)
+        {
+            throw new Exception("Không thể bé hơn 0");
+        }
         this.theTV = theTV;
     }
 
@@ -43,8 +56,20 @@ public class SinhVien extends NguoiDung{
         super.NhapTT();
         System.out.println("Hãy Nhập Mã Số Sinh Viên: ");
         this.setmssv(sc.nextLine());
-        System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
-        this.settheTV(Integer.parseInt(sc.nextLine()));
+        boolean KT = false;
+        while(!KT){
+            try{
+                System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
+                this.settheTV(Integer.parseInt(sc.nextLine()));
+                KT = true;
+            }
+            catch(Exception e){
+                System.out.println("Lỗi"+ e.getMessage());
+                System.out.println("Hãy Nhập Lại!!");
+            }
+        }
+
+
     }
 
     @Override
