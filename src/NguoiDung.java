@@ -46,9 +46,26 @@ public class NguoiDung {
     public void NhapTT()
     {
         System.out.print("Hay Nhap Ten:");
-        String ten = sc.nextLine();
-
-
+         Ten = sc.nextLine();
+        System.out.println("Hay nhap Ma So:");
+        MaSo = sc.nextLine();
+        System.out.println("Hay nhap email: ");
+        Email = sc.nextLine();
+        System.out.println("Hay nhap So Dien Thoai: ");
+        SDT = sc.nextLine();
+        System.out.println("Hay nhap dia chi:");
+        DiaChi = sc.nextLine();
     }
+
+    public String toString()
+    {
+        return"Ten: " +Ten + "Ma So: "+ MaSo + "Email: "+Email +"So Dien Thoai: "+ SDT +"Dia Chi: "+DiaChi;
+    }
+
+    public void Xuat()
+    {
+        System.out.println(this.toString());
+    }
+
 
 }
