@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
 public class NguoiDung {
-    private String MaSo, Ten, Email, DiaChi, SDT;
+    private String Ten, Email, DiaChi, SDT;
+    private int MaSo;
     Scanner sc = new Scanner(System.in);
 
-    public String getMaSo() {
+    public int getMaSo() {
         return MaSo;
     }
 
-    public void setMaSo(String maSo) {
+    public void setMaSo(int maSo) {
         MaSo = maSo;
     }
 
@@ -48,7 +49,7 @@ public class NguoiDung {
         System.out.print("Hay Nhap Ten:");
         this.setTen(sc.nextLine());
         System.out.println("Hay nhap Ma So:");
-        this.setMaSo(sc.nextLine());
+        this.setMaSo(Integer.parseInt(sc.nextLine()));
         System.out.println("Hay nhap email: ");
         this.setEmail(sc.nextLine());
         System.out.println("Hay nhap So Dien Thoai: ");
