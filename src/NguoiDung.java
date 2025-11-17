@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class NguoiDung {
@@ -68,5 +70,14 @@ public class NguoiDung {
         System.out.println(this.toString());
     }
 
+    public LocalDate setDate(){
+        System.out.print("Nhập ngày tháng (dd/MM/yyyy): ");
+        String input = sc.nextLine();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate transInput = LocalDate.parse(input, formatter);
+        System.out.println("Ngày tháng đã nhập: " + transInput);
+
+        return transInput;
+    }
 }
