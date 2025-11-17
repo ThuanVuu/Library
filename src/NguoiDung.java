@@ -1,8 +1,8 @@
-import java.util.Scanner
+import java.util.Scanner;
 
 public class NguoiDung {
-private String MaSo, Ten, Email, DiaChi, SDT;
-Scanner sc = new Scanner(System.in);
+    private String MaSo, Ten, Email, DiaChi, SDT;
+    Scanner sc = new Scanner(System.in);
 
     public String getMaSo() {
         return MaSo;
@@ -46,7 +46,7 @@ Scanner sc = new Scanner(System.in);
     public void NhapTT()
     {
         System.out.print("Hay Nhap Ten:");
-        char ten = sc.nextLine();
+        String ten = sc.nextLine();
 
 
     }
