@@ -10,6 +10,14 @@ public class ThuThu extends NguoiDung{
 
     }
 
+    public void setMaSoTheTT(int maSoTheTT) {
+        this.maSoTheTT = maSoTheTT;
+    }
+
+    public int getMaSoTheTT() {
+        return this.maSoTheTT;
+    }
+
     public LocalDate getNgayLamViec() {
         return this.ngayLamViec;
     }

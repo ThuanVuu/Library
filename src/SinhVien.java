@@ -9,6 +9,10 @@ public class SinhVien extends NguoiDung{
     private boolean phatTraSachMuon = false;
     private LocalDate ngayVaoTV;
 
+    public SinhVien() {
+
+    }
+
     public boolean isPhatTraSachMuon() {
         return phatTraSachMuon;
     }
@@ -36,10 +40,6 @@ public class SinhVien extends NguoiDung{
             throw new Exception("Không thể bé hơn 0");
         }
         this.theTV = theTV;
-    }
-
-    public SinhVien() {
-
     }
 
     public LocalDate getNgayVaoTV() {
