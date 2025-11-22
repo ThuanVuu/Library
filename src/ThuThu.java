@@ -10,8 +10,12 @@ public class ThuThu extends NguoiDung{
 
     }
 
-    public void setMaSoTheTT(int maSoTheTT) {
-        this.maSoTheTT = maSoTheTT;
+    public void setMaSoTheTT(int maSoTheTT) throws Exception {
+        if(maSoTheTT <=0)
+        {
+            throw new Exception("Lỗi không thể bé hơn hoặc bằng 0");
+        }
+        this.maSoTheTT= 1;
     }
 
     public int getMaSoTheTT() {
@@ -24,5 +28,56 @@ public class ThuThu extends NguoiDung{
 
     public void setNgayLamViec() {
         this.ngayLamViec = super.setDate();
+    }
+
+    public String getCaTruc() {
+        return caTruc;
+    }
+
+    public void setCaTruc(String caTruc) {
+        this.caTruc = caTruc;
+    }
+
+    public String getPhongBan() {
+        return phongBan;
+    }
+
+    public void setPhongBan(String phongBan) {
+        this.phongBan = phongBan;
+    }
+
+    @Override
+    public void NhapTT()
+    {
+        super.NhapTT();
+        System.out.println("Hãy Nhập Ca Trực: ");
+        this.setCaTruc(sc.nextLine());
+        System.out.println("Hãy Nhập Phòng Ban: ");
+        this.setPhongBan(sc.nextLine());
+        boolean KT= false;
+        while(!KT)
+        {
+            try{
+                System.out.println("Hãy Nhập Mã Số Thẻ Thư Viện: ");
+                this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
+                KT = true;
+            }
+            catch(Exception e){
+                System.out.println("Lỗi"+ e.getMessage());
+                System.out.println("Hãy Nhập Lại!!");
+            }
+        }
+    }
+
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+"Ca Trực: "+caTruc+"\n"+"Phòng Ban: "+phongBan+"\n"+"Mã Số Thẻ Thủ Thư: "+maSoTheTT;
+    }
+
+    @Override
+    public void Xuat()
+    {
+        System.out.println(this.toString());
     }
 }

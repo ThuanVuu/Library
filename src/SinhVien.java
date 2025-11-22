@@ -75,7 +75,7 @@ public class SinhVien extends NguoiDung{
     @Override
     public String toString()
     {
-        return super.toString()+ "MSSV:"+ mssv + "Mã Số Thẻ Thư Viện:"+ theTV ;
+        return super.toString()+"\n"+"MSSV: "+mssv+"\n"+"Mã Số Thẻ Thư Viện: "+theTV ;
     }
 
     @Override

@@ -65,13 +65,13 @@ public class NguoiDung {
     public void NhapTT()
     {
         boolean KT = false;
-        System.out.print("Hãy Nhập Tên:");
+        System.out.print("Hãy Nhập Tên: ");
         this.setTen(sc.nextLine());
 
         while(!KT)
         {
             try{
-                System.out.println("Hãy Nhâp Mã Số:");
+                System.out.println("Hãy Nhâp Mã Số: ");
                 this.setMaSo(Integer.parseInt(sc.nextLine()));
                 KT = true;
             }
@@ -85,13 +85,13 @@ public class NguoiDung {
         this.setEmail(sc.nextLine());
         System.out.println("Hãy Nhập Số Điện Thoại: ");
         this.setSDT(sc.nextLine());
-        System.out.println("Hãy Nhập Địa Chỉ:");
+        System.out.println("Hãy Nhập Địa Chỉ: ");
         this.setDiaChi(sc.nextLine());
     }
 
     public String toString()
     {
-        return"Ten: " +Ten + "Ma So: "+ MaSo + "Email: "+Email +"So Dien Thoai: "+ SDT +"Dia Chi: "+DiaChi;
+        return"Tên: "+Ten+"\n"+"Mã Số: "+MaSo+"\n"+"Email: "+Email+"\n"+"Số Điện Thoại: "+SDT+"\n"+"Địa Chỉ: "+DiaChi;
     }
 
     public void Xuat()
