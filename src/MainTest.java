@@ -8,5 +8,7 @@ public class MainTest {
         SinhVien sv = new SinhVien();
         sv.taoTK();
         System.out.println(sv.getTaiKhoan());
+        
+        
     }
 }
