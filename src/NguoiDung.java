@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -77,14 +74,13 @@ public class NguoiDung extends TaiKhoan{
         this.setDiaChi(sc.nextLine());
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + " - " + MaSo + " - " + Ten + " - " + Email + " - " + SDT + " - " + DiaChi;
-    }
-
     public void Xuat()
     {
-        System.out.println(this.toString());
+        System.out.println("Tên: "+Ten);
+        System.out.println("Mã Số: "+MaSo);
+        System.out.println("Email: "+Email);
+        System.out.println("Số Điện Thoại: "+SDT);
+        System.out.println("Địa Chỉ: "+DiaChi);
     }
 
     public String setDate(){
