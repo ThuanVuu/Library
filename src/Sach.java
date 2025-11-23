@@ -13,6 +13,9 @@ public class Sach {
     private String tenSach;
     private String ngayXB;
     private int maSach;
+    private String ngayMuon;
+    private String nguoiMuon;
+    private String ngayTra;
 
     public Sach() {
 
@@ -78,6 +81,34 @@ public class Sach {
 
     public void setMaSach(int maSach) {
         this.maSach = maSach;
+    }
+
+    public void setNgayXB(String ngayXB) {
+        this.ngayXB = ngayXB;
+    }
+
+    public String getNgayMuon() {
+        return ngayMuon;
+    }
+
+    public void setNgayMuon(String ngayMuon) {
+        this.ngayMuon = ngayMuon;
+    }
+
+    public String getNguoiMuon() {
+        return nguoiMuon;
+    }
+
+    public void setNguoiMuon(String nguoiMuon) {
+        this.nguoiMuon = nguoiMuon;
+    }
+
+    public String getNgayTra() {
+        return ngayTra;
+    }
+
+    public void setNgayTra(String ngayTra) {
+        this.ngayTra = ngayTra;
     }
 
     public String setDate(){
