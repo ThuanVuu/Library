@@ -33,6 +33,9 @@ public class App {
                 System.out.println("\n".repeat(100));
                 sv.NhapTT();
                 sv.saveToFile(fileTK, true);
+                danhSachTK.add(sv);
+                danhSachSV.add(sv);
+                sv.addFromFile(fileTK);
                 break;
             case 2:
                 ThuThu tt = new ThuThu();
@@ -41,6 +44,9 @@ public class App {
                 System.out.println("\n".repeat(100));
                 tt.NhapTT();
                 tt.saveToFile(fileTK, true);
+                tt.addFromFile(fileTK);
+                danhSachTT.add(tt);
+                danhSachTT.add(tt);
                 break;
             case 3:
                 QuanLy ql = new QuanLy();
@@ -49,6 +55,9 @@ public class App {
                 System.out.println("\n".repeat(100));
                 ql.NhapTT();
                 ql.saveToFile(fileTK, true);
+                ql.addFromFile(fileTK);
+                danhSachQL.add(ql);
+                danhSachTK.add(ql);
                 break;
         }
     }
@@ -85,41 +94,6 @@ public class App {
     public void timKiem()
     {
 
-    }
-
-    public void them()
-    {
-        int chon;
-        System.out.print("1-Sinh Viên \n 2-Thủ Thư \n 3-Sách");
-        System.out.print("Hãy chọn đối tượng để thêm: ");
-        chon = Integer.parseInt(sc.nextLine());
-        switch(chon)
-        {
-            case 1:
-                // đọc file sv
-                SinhVien sv = new SinhVien();
-                sv.NhapTT();
-                danhSachSV.add(sv);
-                //lưu file
-                break;
-            case 2:
-                //đọc file thủ thư
-                ThuThu tt = new ThuThu();
-                tt.NhapTT();
-                danhSachTT.add(tt);
-                //lưu file
-                break;
-            case 3:
-                //đọc file sách
-                Sach s = new Sach();
-                s.nhapTT();
-                khoSach.add(s);
-                //lưu file
-                break;
-            default:
-                System.out.print("Lựa Chọn ko hợp lệ ");
-                break;
-        }
     }
 
     public void xoa()
