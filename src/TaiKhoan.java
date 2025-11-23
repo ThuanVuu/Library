@@ -81,9 +81,33 @@ public class TaiKhoan {
                     String taiKhoan = arr[0].trim();
                     String matKhau = arr[1].trim();
                     String role = arr[2].trim();
+                    String ten = arr[3].trim();
+                    int maSo = Integer.parseInt(arr[4].trim());
+                    String email = arr[5].trim();
+                    String sdt = arr[6].trim();
+                    String diaChi = arr[7].trim();
 
                     TaiKhoan tk = new TaiKhoan(taiKhoan, matKhau, role);
                     App.danhSachTK.add(tk);
+                    if (role.equals("SinhVien")) {
+                        String mssv = arr[8].trim();
+                        int theTV = Integer.parseInt(arr[9].trim());
+                        SinhVien sv = new SinhVien(ten, maSo, email, sdt, diaChi, mssv, theTV);
+                        App.danhSachSV.add(sv);
+                    } else if (role.equals("ThuThu")) {
+                        String catruc = arr[8].trim();
+                        String ngayLamViec = arr[9].trim();
+                        String phongBan = arr[10].trim();
+                        int maSoThe = Integer.parseInt(arr[11].trim());
+                        ThuThu tt = new ThuThu(ten, maSo, email, sdt, diaChi, catruc, ngayLamViec, phongBan, maSoThe);
+                        App.danhSachTT.add(tt);
+                    } else if (role.equals("QuanLy")) {
+                        String phongBan = arr[8].trim();
+                        int idQuanLy = Integer.parseInt(arr[9].trim());
+                        String ngayLamViec = arr[10].trim();
+                        QuanLy ql = new QuanLy(ten, maSo, email, sdt, diaChi, phongBan, idQuanLy, ngayLamViec);
+                        App.danhSachQL.add(ql);
+                    }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

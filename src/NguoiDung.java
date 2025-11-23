@@ -76,7 +76,7 @@ public class NguoiDung extends TaiKhoan{
 
     @Override
     public String toString() {
-        return super.toString() + " - " + MaSo + " - " + Email + " - " + SDT + " - " + DiaChi;
+        return super.toString() + " - " + Ten + " - " + MaSo + " - " + Email + " - " + SDT + " - " + DiaChi;
     }
 
     public void Xuat()

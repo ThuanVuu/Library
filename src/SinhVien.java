@@ -8,6 +8,17 @@ public class SinhVien extends NguoiDung{
     private boolean phatTraSachMuon = false;
     private String ngayVaoTV;
 
+    public SinhVien(String mssv, int theTV) {
+        this.mssv = mssv;
+        this.theTV = theTV;
+    }
+
+    public SinhVien(String Ten, int MaSo, String Email, String SDT, String DiaChi, String mssv, int theTV) {
+        super(Ten, MaSo, Email, SDT, DiaChi);
+        this.mssv = mssv;
+        this.theTV = theTV;
+    }
+
     public SinhVien() {
 
     }

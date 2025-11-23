@@ -16,6 +16,7 @@ public class App {
 
     public App() {
         TaiKhoan.addFromFile(fileTK);
+        SinhVien.addFromFile(fileTK);
     }
 
     public void dangKy() {
@@ -115,6 +116,7 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                     case "ThuThu":
                         boolean menu2 = true;
                         while(menu2){
@@ -148,6 +150,7 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                     case "QuanLy":
                         boolean menu3 = true;
                         while(menu3){
@@ -185,7 +188,9 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                 }
+                break;
             }
             i++;
         }
