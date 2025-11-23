@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class App {
     Scanner sc = new Scanner(System.in);
 
-    Scanner sc = new Scanner(System.in);
-
     public static final String fileQL = "QuanLy.txt";
     public static final String fileSV = "SinhVien.txt";
     public static final String fileTT = "ThuThu.txt";
@@ -62,7 +60,7 @@ public class App {
                 }
             }
             if (checkMK && checkTK) {
-
+                System.out.println("Đăng nhập thành công!!");
             }
             i++;
         }

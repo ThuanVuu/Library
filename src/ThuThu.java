@@ -56,7 +56,7 @@ public class ThuThu extends NguoiDung{
     @Override
     public String toString()
     {
-        return super.toString()+"\n"+"Ca Trực: "+caTruc+"\n"+"Phòng Ban: "+phongBan+"\n"+"Mã Số Thẻ Thủ Thư: "+maSoTheTT;
+        return super.toString()+" - "+caTruc+" - "+phongBan+" - "+maSoTheTT;
     }
 
     @Override

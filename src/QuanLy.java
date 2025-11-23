@@ -54,7 +54,7 @@ public class QuanLy extends NguoiDung{
     @Override
     public String toString()
     {
-        return super.toString()+"\n"+"Phòng Ban: "+phongBan+"\n"+"Mã Quản Lý: "+idQuanLy+"\n"+"Vai Trò: "+vaiTro;
+        return super.toString()+" - "+phongBan+" - "+idQuanLy+" - "+vaiTro;
     }
 
     @Override
