@@ -298,10 +298,6 @@ public class App {
         }
     }
 
-    public void sua()
-    {
-
-    }
     public void timMK() {
         System.out.print("Nhập Tài Khoản Cần Tìm MK: ");
         String tenTkCanTim = sc.nextLine();
@@ -449,7 +445,65 @@ public class App {
                 System.out.println("Lựa chọn không hợp lệ!");
         }
     }
-
+    public void timTenTK()
+    {
+        System.out.print("Hãy nhập tên Tài Khoản bạn muốn tìm: ");
+        String ten = sc.nextLine();
+        System.out.print("Bạn là: 1-Sinh Viên 2-Thủ Thư 3-Quản Lý");
+        int chon = Integer.parseInt(sc.nextLine());
+        boolean tim= false;
+        switch(chon)
+        {
+            case 1:
+                for(SinhVien sv : danhSachSV)
+                {
+                    if(sv.getTaiKhoan().equalsIgnoreCase(ten))
+                    {
+                        System.out.println("Tìm Thấy tài khoản:");
+                        sv.Xuat();
+                        tim = true;
+                        break;
+                    }
+                }
+                if(!tim)
+                {
+                    System.out.print("Không thấy tài khoản");
+                }
+                break;
+            case 2:
+                for(ThuThu tt : danhSachTT)
+                {
+                    if(tt.getTaiKhoan().equalsIgnoreCase(ten))
+                    {
+                        System.out.println("Tìm thấy tài khoản:");
+                        tt.Xuat();
+                        tim = true;
+                        break;
+                    }
+                }
+                if(!tim)
+                {
+                    System.out.print("Không thấy tài khoản");
+                }
+                break;
+            case 3:
+                for(QuanLy ql: danhSachQL)
+                {
+                    if(ql.getTaiKhoan().equalsIgnoreCase(ten))
+                    {
+                        System.out.println("Tìm thấy tài khoản:");
+                        ql.Xuat();
+                        tim = true;
+                        break;
+                    }
+                }
+                if(!tim)
+                {
+                    System.out.print("Không thấy tài khoản");
+                }
+                break;
+        }
+    }
 
 
 
