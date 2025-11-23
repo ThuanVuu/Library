@@ -45,11 +45,11 @@ public class ThuThu extends NguoiDung{
     public void NhapTT()
     {
         super.NhapTT();
-        System.out.println("Hãy Nhập Ca Trực: ");
+        System.out.print("Hãy Nhập Ca Trực: ");
         this.setCaTruc(sc.nextLine());
-        System.out.println("Hãy Nhập Phòng Ban: ");
+        System.out.print("Hãy Nhập Phòng Ban: ");
         this.setPhongBan(sc.nextLine());
-        System.out.println("Hãy Nhập Mã Số Thẻ Thư Viện: ");
+        System.out.print("Hãy Nhập Mã Số Thẻ Thư Viện: ");
         this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
     }
 

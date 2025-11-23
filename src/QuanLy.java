@@ -44,11 +44,11 @@ public class QuanLy extends NguoiDung{
     public void NhapTT()
     {
         super.NhapTT();
-        System.out.println("Hãy Nhập Phòng Ban: ");
+        System.out.print("Hãy Nhập Phòng Ban: ");
         this.setPhongBan(sc.nextLine());
-        System.out.println("Hãy Nhập Mã Quản Lý: ");
+        System.out.print("Hãy Nhập Mã Quản Lý: ");
         this.setIdQuanLy(Integer.parseInt(sc.nextLine()));
-        System.out.println("Hãy Nhập Vai Trò: ");
+        System.out.print("Hãy Nhập Vai Trò: ");
         this.setVaiTro(sc.nextLine());
     }
     @Override

@@ -67,13 +67,13 @@ public class NguoiDung extends TaiKhoan{
     {
         System.out.print("Hãy Nhập Tên: ");
         this.setTen(sc.nextLine());
-        System.out.println("Hãy Nhâp Mã Số: ");
+        System.out.print("Hãy Nhâp Mã Số: ");
         this.setMaSo(Integer.parseInt(sc.nextLine()));
-        System.out.println("Hãy Nhập Email: ");
+        System.out.print("Hãy Nhập Email: ");
         this.setEmail(sc.nextLine());
-        System.out.println("Hãy Nhập Số Điện Thoại: ");
+        System.out.print("Hãy Nhập Số Điện Thoại: ");
         this.setSDT(sc.nextLine());
-        System.out.println("Hãy Nhập Địa Chỉ: ");
+        System.out.print("Hãy Nhập Địa Chỉ: ");
         this.setDiaChi(sc.nextLine());
     }
 

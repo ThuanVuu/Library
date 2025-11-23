@@ -24,8 +24,6 @@ public class TaiKhoan {
         this.setTaiKhoan(sc.nextLine());
         System.out.print("Nhập mật khẩu: ");
         this.setMatKhau(sc.nextLine());
-        System.out.print("Nhập vai trò: ");
-        this.setRole(sc.nextLine());
     }
 
     public String getRole() {
@@ -56,12 +54,12 @@ public class TaiKhoan {
         return taiKhoan + " - " + matKhau + " - " + role;
     }
 
-    public void saveToFile(String filePath, boolean choice, TaiKhoan taiKhoan) {
+    public void saveToFile(String filePath, boolean choice) {
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file, choice);
             PrintWriter pw = new PrintWriter(fw);
-            pw.println(taiKhoan);
+            pw.println(this);
             fw.close();
             pw.close();
         } catch (Exception e) {

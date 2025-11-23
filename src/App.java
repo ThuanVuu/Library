@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class App {
     Scanner sc = new Scanner(System.in);
 
-    public static final String fileQL = "QuanLy.txt";
-    public static final String fileSV = "SinhVien.txt";
-    public static final String fileTT = "ThuThu.txt";
     public static final String fileSach = "KhoSach.txt";
     public static final String fileTK = "DangNhap.txt";
 
@@ -31,12 +28,28 @@ public class App {
         switch (choice) {
             case 1:
                 SinhVien sv = new SinhVien();
+                sv.setRole("SinhVien");
                 sv.taoTK();
                 System.out.println("\n".repeat(100));
                 sv.NhapTT();
-                sv.saveToFile(fileTK, true, sv);
+                sv.saveToFile(fileTK, true);
                 break;
             case 2:
+                ThuThu tt = new ThuThu();
+                tt.setRole("ThuThu");
+                tt.taoTK();
+                System.out.println("\n".repeat(100));
+                tt.NhapTT();
+                tt.saveToFile(fileTK, true);
+                break;
+            case 3:
+                QuanLy ql = new QuanLy();
+                ql.setRole("QuanLy");
+                ql.taoTK();
+                System.out.println("\n".repeat(100));
+                ql.NhapTT();
+                ql.saveToFile(fileTK, true);
+                break;
         }
     }
 
