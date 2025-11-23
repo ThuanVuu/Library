@@ -7,6 +7,14 @@ public class QuanLy extends NguoiDung{
 
     }
 
+    public QuanLy(String taiKhoan, String matKhau, String role, String ten, String email,
+                  String diaChi, String SDT, int maSo, String phongBan, int idQuanLy, String ngayLamViec) {
+        super(taiKhoan, matKhau, role, ten, email, diaChi, SDT, maSo);
+        this.phongBan = phongBan;
+        this.idQuanLy = idQuanLy;
+        this.ngayLamViec = ngayLamViec;
+    }
+
     public QuanLy(String Ten, int MaSo, String Email, String SDT, String DiaChi,
                   String phongBan, int idQuanLy, String ngayLamViec) {
         super(Ten, MaSo, Email, SDT, DiaChi);

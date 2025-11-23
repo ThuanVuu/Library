@@ -52,6 +52,15 @@ public class NguoiDung extends TaiKhoan{
 
     }
 
+    public NguoiDung(String taiKhoan, String matKhau, String role, String ten, String email, String diaChi, String SDT, int maSo) {
+        super(taiKhoan, matKhau, role);
+        Ten = ten;
+        Email = email;
+        DiaChi = diaChi;
+        this.SDT = SDT;
+        MaSo = maSo;
+    }
+
     public NguoiDung(String Ten, int MaSo, String Email, String SDT, String DiaChi) {
         this.Ten = Ten;
         this.MaSo = MaSo;

@@ -92,20 +92,22 @@ public class TaiKhoan {
                     if (role.equals("SinhVien")) {
                         String mssv = arr[8].trim();
                         int theTV = Integer.parseInt(arr[9].trim());
-                        SinhVien sv = new SinhVien(ten, maSo, email, sdt, diaChi, mssv, theTV);
+                        SinhVien sv = new SinhVien(taiKhoan, matKhau, role, ten, email, diaChi, sdt, maSo, mssv, theTV);
                         App.danhSachSV.add(sv);
                     } else if (role.equals("ThuThu")) {
                         String catruc = arr[8].trim();
                         String ngayLamViec = arr[9].trim();
                         String phongBan = arr[10].trim();
                         int maSoThe = Integer.parseInt(arr[11].trim());
-                        ThuThu tt = new ThuThu(ten, maSo, email, sdt, diaChi, catruc, ngayLamViec, phongBan, maSoThe);
+                        ThuThu tt = new ThuThu(taiKhoan, matKhau, role,
+                                ten, email, diaChi, sdt, maSo, catruc, ngayLamViec, phongBan, maSoThe);
                         App.danhSachTT.add(tt);
                     } else if (role.equals("QuanLy")) {
                         String phongBan = arr[8].trim();
                         int idQuanLy = Integer.parseInt(arr[9].trim());
                         String ngayLamViec = arr[10].trim();
-                        QuanLy ql = new QuanLy(ten, maSo, email, sdt, diaChi, phongBan, idQuanLy, ngayLamViec);
+                        QuanLy ql = new QuanLy(taiKhoan, matKhau, role, ten, email, diaChi, sdt,
+                                maSo, phongBan, idQuanLy, ngayLamViec);
                         App.danhSachQL.add(ql);
                     }
                 } catch (Exception e) {

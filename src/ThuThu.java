@@ -8,6 +8,15 @@ public class ThuThu extends NguoiDung{
 
     }
 
+    public ThuThu(String taiKhoan, String matKhau, String role, String ten, String email, String diaChi,
+                  String SDT, int maSo, String caTruc, String ngayLamViec, String phongBan, int maSoTheTT) {
+        super(taiKhoan, matKhau, role, ten, email, diaChi, SDT, maSo);
+        this.caTruc = caTruc;
+        this.ngayLamViec = ngayLamViec;
+        this.phongBan = phongBan;
+        this.maSoTheTT = maSoTheTT;
+    }
+
     public ThuThu(String Ten, int MaSo, String Email, String SDT, String DiaChi, String caTruc, String ngayLamViec, String phongBan, int maSoTheTT) {
         super(Ten, MaSo, Email, SDT, DiaChi);
         this.caTruc = caTruc;

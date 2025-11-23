@@ -6,6 +6,7 @@ public class App {
     Scanner sc = new Scanner(System.in);
 
     public static final String fileSach = "KhoSach.txt";
+    public static final String fileDaMuon = "SachMuon.txt";
     public static final String fileTK = "DangNhap.txt";
 
     public static List<QuanLy> danhSachQL = new ArrayList<>();
@@ -178,6 +179,8 @@ public class App {
                                     this.dangKy(1);
                                     break;
                                 case 5:
+                                    this.xoa(1);
+                                    break;
                                 case 6:
                                 case 7:
                                     this.dangKy(2);
@@ -206,25 +209,58 @@ public class App {
 
     }
 
-    public void xoa()
+    public int locTheoTen(String name, ArrayList<TaiKhoan> list, int chon) {
+        int count = 0;
+
+        switch(chon) {
+            case 1:
+                for (SinhVien sv : danhSachSV) {
+                    if (sv.getTen().toLowerCase().contains(name)) {
+                        list.add(sv);
+                        count++;
+                    }
+                }
+                break;
+            case 2:
+                for (ThuThu tt : danhSachTT) {
+                    if (tt.getTen().toLowerCase().contains(name)) {
+                        list.add(tt);
+                        count++;
+                    }
+                }
+                break;
+            case 3:
+                for (QuanLy ql : danhSachQL) {
+                    if (ql.getTen().toLowerCase().contains(name)) {
+                        list.add(ql);
+                        count++;
+                    }
+                }
+                break;
+        }
+        return count;
+    }
+
+    public void xoa(int chon)
     {
-        int chon;
-        System.out.print("1-Sinh Viên \n 2-Thủ Thư \n 3-Sách");
-        System.out.print("Hãy chọn đối tượng để xóa: ");
-        chon = Integer.parseInt(sc.nextLine());
+        ArrayList<TaiKhoan> danhSachLoc = new ArrayList<>();
+
         switch(chon)
         {
             case 1:
                 //đọc file
                 System.out.print("Hãy nhập tên cần xóa: ");
                 String tenCanXoa = sc.nextLine();
-                for(SinhVien sv : danhSachSV)
-                {
-                    if(sv.getTen().equalsIgnoreCase(tenCanXoa))
-                    {
+                this.locTheoTen(tenCanXoa, danhSachLoc, 1);
+                for (int i = 0; i < danhSachLoc.size(); i++) {
+                    System.out.println((i + 1) + ". " + danhSachLoc.get(i));
+                }
+                System.out.print("Chọn đối tượng cần xoá: ");
+                int i = Integer.parseInt(sc.nextLine());
+                for (SinhVien sv : danhSachSV) {
+                    if (sv.getTaiKhoan().equals(danhSachLoc.get(i - 1).getTaiKhoan())) {
                         danhSachSV.remove(sv);
-                        System.out.print("Đã xóa Thành Công!!!");
-                        break;
+
                     }
                 }
                 break;
