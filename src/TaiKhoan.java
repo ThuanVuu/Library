@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DangNhap {
+public class TaiKhoan {
 
     Scanner sc = new Scanner(System.in);
 
@@ -8,11 +8,11 @@ public class DangNhap {
     private String matKhau;
     private String role;
 
-    public DangNhap() {
+    public TaiKhoan() {
 
     }
 
-    public void DangKy() {
+    public void dangKy() {
         System.out.print("Nhập tên tài khoản: ");
         this.setTaiKhoan(sc.nextLine());
         System.out.print("Nhập mật khẩu: ");
