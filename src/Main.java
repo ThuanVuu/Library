@@ -18,8 +18,9 @@ public class Main {
             menu = Integer.parseInt(sc.nextLine());
             switch (menu) {
                 case 1:
-
                 case 2:
+                    app.dangKy();
+                    break;
                 case 3:
             }
         } while (menu != 0);
