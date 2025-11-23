@@ -1,7 +1,6 @@
 public class QuanLy extends NguoiDung{
     private String phongBan;
     private int idQuanLy;
-    private String vaiTro;
     private String ngayLamViec;
 
     public QuanLy() {
@@ -33,13 +32,6 @@ public class QuanLy extends NguoiDung{
         this.idQuanLy = idQuanLy;
     }
 
-    public String getVaiTro() {
-        return vaiTro;
-    }
-
-    public void setVaiTro(String vaiTro) {
-        this.vaiTro = vaiTro;
-    }
     @Override
     public void NhapTT()
     {
@@ -48,8 +40,11 @@ public class QuanLy extends NguoiDung{
         this.setPhongBan(sc.nextLine());
         System.out.print("Hãy Nhập Mã Quản Lý: ");
         this.setIdQuanLy(Integer.parseInt(sc.nextLine()));
-        System.out.print("Hãy Nhập Vai Trò: ");
-        this.setVaiTro(sc.nextLine());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - " + phongBan + " - " + idQuanLy;
     }
 
     @Override
@@ -58,7 +53,6 @@ public class QuanLy extends NguoiDung{
         super.Xuat();
         System.out.println("Phòng Ban: "+phongBan);
         System.out.println("Mã Quản Lý: "+idQuanLy);
-        System.out.println("Vai Trò: "+vaiTro);
     }
 
 

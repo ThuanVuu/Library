@@ -74,6 +74,11 @@ public class NguoiDung extends TaiKhoan{
         this.setDiaChi(sc.nextLine());
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " - " + MaSo + " - " + Email + " - " + SDT + " - " + DiaChi;
+    }
+
     public void Xuat()
     {
         System.out.println("Tên: "+Ten);

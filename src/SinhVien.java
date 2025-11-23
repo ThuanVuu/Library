@@ -56,6 +56,10 @@ public class SinhVien extends NguoiDung{
         this.settheTV(Integer.parseInt(sc.nextLine()));
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " - " + mssv + " - " + theTV;
+    }
 
     @Override
     public void Xuat()
