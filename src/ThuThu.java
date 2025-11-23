@@ -59,6 +59,8 @@ public class ThuThu extends NguoiDung{
         this.setPhongBan(sc.nextLine());
         System.out.print("Hãy Nhập Mã Số Thẻ Thư Viện: ");
         this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
+        System.out.print("Hãy Nhập Ngày Làm Việc: ");
+        this.setNgayLamViec();
     }
 
     @Override

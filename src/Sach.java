@@ -83,10 +83,6 @@ public class Sach {
         this.maSach = maSach;
     }
 
-    public void setNgayXB(String ngayXB) {
-        this.ngayXB = ngayXB;
-    }
-
     public String getNgayMuon() {
         return ngayMuon;
     }

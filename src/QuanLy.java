@@ -48,6 +48,8 @@ public class QuanLy extends NguoiDung{
         this.setPhongBan(sc.nextLine());
         System.out.print("Hãy Nhập Mã Quản Lý: ");
         this.setIdQuanLy(Integer.parseInt(sc.nextLine()));
+        System.out.print("Hãy Nhập Ngày Làm Việc: ");
+        this.setNgayLamViec();
     }
 
     @Override
