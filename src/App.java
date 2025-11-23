@@ -95,8 +95,9 @@ public class App {
                             System.out.println("4. Sửa thông tin cá nhân.");
                             System.out.println("5. Tìm kiếm sách.");
                             System.out.println("6. Nộp phạt.");
+                            System.out.println("7. Kiểm tra phạt.");
                             System.out.println("----------------------------------------------------------");
-                            System.out.print("Lựa chọn (0 - 6): ");
+                            System.out.print("Lựa chọn (0 - 7): ");
                             int choice = Integer.parseInt(sc.nextLine());
                             switch (choice) {
                                 case 0:
@@ -108,8 +109,9 @@ public class App {
                                 case 4:
                                 case 5:
                                 case 6:
+                                case 7:
                                 default:
-                                    System.out.println("Vui lòng nhập từ 0 - 6!!");
+                                    System.out.println("Vui lòng nhập từ 0 - 7!!");
                                     break;
                             }
                         }
