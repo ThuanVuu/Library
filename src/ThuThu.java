@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-
 public class ThuThu extends NguoiDung{
     private String caTruc;
     private String ngayLamViec;
@@ -10,12 +8,9 @@ public class ThuThu extends NguoiDung{
 
     }
 
-    public void setMaSoTheTT(int maSoTheTT) throws Exception {
-        if(maSoTheTT <=0)
-        {
-            throw new Exception("Lỗi không thể bé hơn hoặc bằng 0");
-        }
-        this.maSoTheTT= 1;
+    public void setMaSoTheTT(int maSoTheTT)  {
+
+        this.maSoTheTT= maSoTheTT;
     }
 
     public int getMaSoTheTT() {
@@ -54,19 +49,8 @@ public class ThuThu extends NguoiDung{
         this.setCaTruc(sc.nextLine());
         System.out.println("Hãy Nhập Phòng Ban: ");
         this.setPhongBan(sc.nextLine());
-        boolean KT= false;
-        while(!KT)
-        {
-            try{
-                System.out.println("Hãy Nhập Mã Số Thẻ Thư Viện: ");
-                this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
-                KT = true;
-            }
-            catch(Exception e){
-                System.out.println("Lỗi"+ e.getMessage());
-                System.out.println("Hãy Nhập Lại!!");
-            }
-        }
+        System.out.println("Hãy Nhập Mã Số Thẻ Thư Viện: ");
+        this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
     }
 
     @Override

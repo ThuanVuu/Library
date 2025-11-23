@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-
 public class QuanLy extends NguoiDung{
     private String phongBan;
     private int idQuanLy;
@@ -30,11 +28,8 @@ public class QuanLy extends NguoiDung{
         return idQuanLy;
     }
 
-    public void setIdQuanLy(int idQuanLy) throws Exception {
-        if(idQuanLy <0)
-        {
-            throw new Exception("Không thể bé hơn 0");
-        }
+    public void setIdQuanLy(int idQuanLy)  {
+
         this.idQuanLy = idQuanLy;
     }
 
@@ -51,20 +46,8 @@ public class QuanLy extends NguoiDung{
         super.NhapTT();
         System.out.println("Hãy Nhập Phòng Ban: ");
         this.setPhongBan(sc.nextLine());
-        boolean KT = false;
-        while(!KT)
-        {
-            try{
-                System.out.println("Hãy Nhập Mã Quản Lý: ");
-                this.setIdQuanLy(Integer.parseInt(sc.nextLine()));
-                KT = true;
-            }
-            catch(Exception e){
-                System.out.println("Lỗi:" + e.getMessage());
-                System.out.println("Hãy Nhập Lại!!");
-            }
-        }
-
+        System.out.println("Hãy Nhập Mã Quản Lý: ");
+        this.setIdQuanLy(Integer.parseInt(sc.nextLine()));
         System.out.println("Hãy Nhập Vai Trò: ");
         this.setVaiTro(sc.nextLine());
     }
