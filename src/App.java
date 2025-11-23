@@ -13,6 +13,7 @@ public class App {
     public static List<ThuThu> danhSachTT = new ArrayList<>();
     public static List<Sach> khoSach = new ArrayList<>();
     public static List<TaiKhoan> danhSachTK = new ArrayList<>();
+    public static List<NguoiDung> danhSachND = new ArrayList<>();
 
     public App() {
         TaiKhoan.addFromFile(fileTK);
@@ -259,6 +260,67 @@ public class App {
     {
 
     }
+    public void TimMK() {
+        System.out.print("Nhập Tài Khoản Cần Tìm MK: ");
+        String tenTkCanTim = sc.nextLine();
+
+        System.out.print("Bạn muốn tìm bằng Email hay SDT (1-Email, 2-SDT): ");
+        int chon = Integer.parseInt(sc.nextLine());
+
+        boolean found = false;
+
+        switch (chon) {
+            case 1:
+                System.out.print("Nhập Email: ");
+                String email = sc.nextLine();
+
+                for (NguoiDung nd : danhSachND) {
+                    if (nd.getEmail().equalsIgnoreCase(email))
+                    {
+                        for(TaiKhoan tk : danhSachTK){
+                           if(tk.getTaiKhoan().equalsIgnoreCase(tenTkCanTim))
+                           {
+                               System.out.println("Mật khẩu là: " + tk.getMatKhau());
+                               found = true;
+                               break;
+                           }
+                        }
+                    }
+                    break;
+                }
+
+                if (!found) {
+                    System.out.println("Không tìm thấy tài khoản với email này!");
+                }
+                break;
+
+            case 2:
+                System.out.print("Nhập SĐT: ");
+                String sdt = sc.nextLine();
+
+                for (NguoiDung nd : danhSachND) {
+                    if (nd.getSDT().equals(sdt)){
+                        for(TaiKhoan tk: danhSachTK)
+                        {
+                            if(tk.getTaiKhoan().equalsIgnoreCase(tenTkCanTim)){
+                                System.out.println("Mật khẩu là: " + tk.getMatKhau());
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (!found) {
+                    System.out.println("Không tìm thấy tài khoản với SĐT này!");
+                }
+                break;
+
+            default:
+                System.out.println("Lựa chọn không hợp lệ!");
+        }
+    }
+
 
 
 }
