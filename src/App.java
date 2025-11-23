@@ -116,6 +116,7 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                     case "ThuThu":
                         boolean menu2 = true;
                         while(menu2){
@@ -134,7 +135,7 @@ public class App {
                             int choice2 = Integer.parseInt(sc.nextLine());
                             switch (choice2) {
                                 case 0:
-                                    menu = false;
+                                    menu2 = false;
                                     break;
                                 case 1:
                                 case 2:
@@ -149,6 +150,7 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                     case "QuanLy":
                         boolean menu3 = true;
                         while(menu3){
@@ -169,7 +171,7 @@ public class App {
                             int choice3 = Integer.parseInt(sc.nextLine());
                             switch (choice3) {
                                 case 0:
-                                    menu = false;
+                                    menu3 = false;
                                     break;
                                 case 1:
                                 case 2:
@@ -186,7 +188,9 @@ public class App {
                                     break;
                             }
                         }
+                        break;
                 }
+                break;
             }
             i++;
         }

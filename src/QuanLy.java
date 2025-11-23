@@ -7,6 +7,14 @@ public class QuanLy extends NguoiDung{
 
     }
 
+    public QuanLy(String Ten, int MaSo, String Email, String SDT, String DiaChi,
+                  String phongBan, int idQuanLy, String ngayLamViec) {
+        super(Ten, MaSo, Email, SDT, DiaChi);
+        this.phongBan = phongBan;
+        this.idQuanLy = idQuanLy;
+        this.ngayLamViec = ngayLamViec;
+    }
+
     public String getNgayLamViec() {
         return this.ngayLamViec;
     }
@@ -44,7 +52,7 @@ public class QuanLy extends NguoiDung{
 
     @Override
     public String toString() {
-        return super.toString() + " - " + phongBan + " - " + idQuanLy;
+        return super.toString() + " - " + phongBan + " - " + idQuanLy + " - " + ngayLamViec;
     }
 
     @Override

@@ -8,6 +8,14 @@ public class ThuThu extends NguoiDung{
 
     }
 
+    public ThuThu(String Ten, int MaSo, String Email, String SDT, String DiaChi, String caTruc, String ngayLamViec, String phongBan, int maSoTheTT) {
+        super(Ten, MaSo, Email, SDT, DiaChi);
+        this.caTruc = caTruc;
+        this.ngayLamViec = ngayLamViec;
+        this.phongBan = phongBan;
+        this.maSoTheTT = maSoTheTT;
+    }
+
     public void setMaSoTheTT(int maSoTheTT)  {
 
         this.maSoTheTT= maSoTheTT;
@@ -55,7 +63,7 @@ public class ThuThu extends NguoiDung{
 
     @Override
     public String toString() {
-        return super.toString() + " - " + caTruc + " - " + phongBan + " - " + maSoTheTT;
+        return super.toString() + " - " + caTruc + " - " + ngayLamViec +" - " + phongBan + " - " + maSoTheTT;
     }
     @Override
     public void Xuat()
