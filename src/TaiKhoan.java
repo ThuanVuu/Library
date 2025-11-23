@@ -19,7 +19,7 @@ public class TaiKhoan {
         this.setRole(role);
     }
 
-    public void dangKy() {
+    public void taoTK() {
         System.out.print("Nhập tên tài khoản: ");
         this.setTaiKhoan(sc.nextLine());
         System.out.print("Nhập mật khẩu: ");
@@ -56,12 +56,12 @@ public class TaiKhoan {
         return taiKhoan + " - " + matKhau + " - " + role;
     }
 
-    public void saveToFile(String filePath, boolean choice) {
+    public void saveToFile(String filePath, boolean choice, TaiKhoan taiKhoan) {
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file, choice);
             PrintWriter pw = new PrintWriter(fw);
-            pw.println(this);
+            pw.println(taiKhoan);
             fw.close();
             pw.close();
         } catch (Exception e) {

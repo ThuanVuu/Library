@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class NguoiDung {
+public class NguoiDung extends TaiKhoan{
     private String Ten, Email, DiaChi, SDT;
     private int MaSo;
     Scanner sc = new Scanner(System.in);
@@ -65,7 +65,6 @@ public class NguoiDung {
 
     public void NhapTT()
     {
-
         System.out.print("Hãy Nhập Tên: ");
         this.setTen(sc.nextLine());
         System.out.println("Hãy Nhâp Mã Số: ");
@@ -78,9 +77,14 @@ public class NguoiDung {
         this.setDiaChi(sc.nextLine());
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " - " + MaSo + " - " + Ten + " - " + Email + " - " + SDT + " - " + DiaChi;
+    }
+
     public void Xuat()
     {
-        System.out.print("Tên: "+Ten+"\n"+"Mã Số: "+MaSo+"\n"+"Email: "+Email+"\n"+"Số Điện Thoại: "+SDT+"\n"+"Địa Chỉ: "+DiaChi);
+        System.out.println(this.toString());
     }
 
     public String setDate(){
@@ -99,18 +103,5 @@ public class NguoiDung {
         }
 
         return transInput.format(formatter);
-    }
-
-    public void saveToFile(String filePath, boolean choice) {
-        File file = new File(filePath);
-        try {
-            FileWriter fw = new FileWriter(file, choice);
-            PrintWriter pw = new PrintWriter(fw);
-            pw.println(this);
-            fw.close();
-            pw.close();
-        } catch (Exception e) {
-            System.out.println("Lỗi: " + e.getMessage());
-        }
     }
 }

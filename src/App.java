@@ -22,14 +22,51 @@ public class App {
     }
 
     public void dangKy() {
-        TaiKhoan tk = new TaiKhoan();
-        tk.dangKy();
-        danhSachTK.add(tk);
-        tk.saveToFile(fileTK, true);
+        System.out.println("Bạn muốn tạo tài khoản cho vai trò gì?");
+        System.out.println("1. Sinh Viên.");
+        System.out.println("2. Thủ Thư.");
+        System.out.println("3. Quản Lý.");
+        System.out.print("Lựa chọn (1 - 3): ");
+        int choice = Integer.parseInt(sc.nextLine());
+        switch (choice) {
+            case 1:
+                SinhVien sv = new SinhVien();
+                sv.taoTK();
+                System.out.println("\n".repeat(100));
+                sv.NhapTT();
+                sv.saveToFile(fileTK, true, sv);
+                break;
+            case 2:
+        }
     }
 
     public void dangNhap() {
+        System.out.print("Nhập tài khoản: ");
+        String taiKhoan = sc.nextLine();
+        boolean checkTK = false;
+        System.out.print("Nhập mật khẩu: ");
+        String matKhau = sc.nextLine();
+        boolean checkMK = false;
+        TaiKhoan dangnhap = null;
 
+        int i = 0;
+        //Kiem tra tai khoan va mat khau
+        while (i < danhSachTK.size()) {
+            TaiKhoan tk = danhSachTK.get(i);
+            if (tk.getTaiKhoan().equals(taiKhoan)) {
+                checkTK = true;
+                if (tk.getMatKhau().equals(matKhau)) {
+                    checkMK = true;
+                }
+            }
+            if (checkMK && checkTK) {
+                System.out.println("Đăng nhập thành công!!");
+            }
+            i++;
+        }
+        if (checkMK == false || checkTK == false) {
+            System.out.println("Mật khẩu hoặc tài khoản không hợp lệ.");
+        }
     }
 
     public void timKiem()
