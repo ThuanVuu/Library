@@ -19,14 +19,7 @@ public class App {
         TaiKhoan.addFromFile(fileTK);
     }
 
-    public void dangKy() {
-        System.out.println("Bạn muốn tạo tài khoản cho vai trò gì?");
-        System.out.println("1. Sinh Viên.");
-        System.out.println("2. Thủ Thư.");
-        System.out.println("3. Quản Lý.");
-        System.out.println("4. Thoát.");
-        System.out.print("Lựa chọn (1 - 4): ");
-        int choice = Integer.parseInt(sc.nextLine());
+    public void dangKy(int choice) {
         switch (choice) {
             case 1:
                 SinhVien sv = new SinhVien();
@@ -145,6 +138,8 @@ public class App {
                                 case 3:
                                 case 4:
                                 case 5:
+                                    this.dangKy(1);
+                                    break;
                                 case 6:
                                 case 7:
                                 case 8:
@@ -180,9 +175,13 @@ public class App {
                                 case 2:
                                 case 3:
                                 case 4:
+                                    this.dangKy(1);
+                                    break;
                                 case 5:
                                 case 6:
                                 case 7:
+                                    this.dangKy(2);
+                                    break;
                                 case 8:
                                 case 9:
                                 case 10:

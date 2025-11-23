@@ -21,7 +21,14 @@ public class Main {
                     app.dangNhap();
                     break;
                 case 2:
-                    app.dangKy();
+                    System.out.println("Bạn muốn tạo tài khoản cho vai trò gì?");
+                    System.out.println("1. Sinh Viên.");
+                    System.out.println("2. Thủ Thư.");
+                    System.out.println("3. Quản Lý.");
+                    System.out.println("4. Thoát.");
+                    System.out.print("Lựa chọn (1 - 4): ");
+                    int choice = Integer.parseInt(sc.nextLine());
+                    app.dangKy(choice);
                     break;
                 case 3:
                     app.timMK();
