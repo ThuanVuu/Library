@@ -113,6 +113,76 @@ public class App {
                                     break;
                             }
                         }
+                    case "ThuThu":
+                        boolean menu2 = true;
+                        while(menu2){
+                            System.out.println("----------------------Menu Chức Năng----------------------");
+                            System.out.println("0. Thoát.");
+                            System.out.println("1. Thêm Sách.");
+                            System.out.println("2. Sửa Sách.");
+                            System.out.println("3. Xóa Sách");
+                            System.out.println("4. Quản Lý Danh Mục Sách.");
+                            System.out.println("5. Thêm Thông Tin Sinh Viên.");
+                            System.out.println("6. Xóa Thông Tin Sinh Viên.");
+                            System.out.println("7. Sửa Thông Tin Sinh Viên.");
+                            System.out.println("8. Tìm Kiếm Sách.");
+                            System.out.println("----------------------------------------------------------");
+                            System.out.print("Lựa chọn (0 - 8): ");
+                            int choice2 = Integer.parseInt(sc.nextLine());
+                            switch (choice2) {
+                                case 0:
+                                    menu = false;
+                                    break;
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                default:
+                                    System.out.println("Vui lòng nhập từ 0 - 8!!");
+                                    break;
+                            }
+                        }
+                    case "QuanLy":
+                        boolean menu3 = true;
+                        while(menu3){
+                            System.out.println("----------------------Menu Chức Năng----------------------");
+                            System.out.println("0. Thoát.");
+                            System.out.println("1. Thêm Sách.");
+                            System.out.println("2. Sửa Sách.");
+                            System.out.println("3. Xóa Sách");
+                            System.out.println("4. Thêm Thông Tin Sinh Viên.");
+                            System.out.println("5. Xóa Thông Tin Sinh Viên.");
+                            System.out.println("6. Sửa Thông Tin Sinh Viên.");
+                            System.out.println("7. Thêm Thông Tin Thủ Thư.");
+                            System.out.println("8. Xóa Thông Tin Thủ Thư.");
+                            System.out.println("9. Sửa Thông Tin Thủ Thư.");
+                            System.out.println("10. Tìm Kiếm Sách.");
+                            System.out.println("----------------------------------------------------------");
+                            System.out.print("Lựa chọn (0 - 10): ");
+                            int choice3 = Integer.parseInt(sc.nextLine());
+                            switch (choice3) {
+                                case 0:
+                                    menu = false;
+                                    break;
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                case 10:
+                                default:
+                                    System.out.println("Vui lòng nhập từ 0 - 10!!");
+                                    break;
+                            }
+                        }
                 }
             }
             i++;
