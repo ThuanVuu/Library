@@ -24,7 +24,8 @@ public class App {
         System.out.println("1. Sinh Viên.");
         System.out.println("2. Thủ Thư.");
         System.out.println("3. Quản Lý.");
-        System.out.print("Lựa chọn (1 - 3): ");
+        System.out.println("4. Thoát.");
+        System.out.print("Lựa chọn (1 - 4): ");
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
             case 1:
@@ -59,6 +60,8 @@ public class App {
                 ql.addFromFile(fileTK);
                 danhSachQL.add(ql);
                 danhSachTK.add(ql);
+                break;
+            default:
                 break;
         }
     }
