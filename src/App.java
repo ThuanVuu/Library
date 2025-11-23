@@ -267,7 +267,7 @@ public class App {
     {
 
     }
-    public void TimMK() {
+    public void timMK() {
         System.out.print("Nhập Tài Khoản Cần Tìm MK: ");
         String tenTkCanTim = sc.nextLine();
 
@@ -280,8 +280,6 @@ public class App {
         boolean found = false;
 
         switch (chon) {
-
-
             case 1:
                 System.out.print("Nhập Email: ");
                 String email = sc.nextLine();
@@ -348,9 +346,6 @@ public class App {
                         System.out.println("Không hợp lệ!");
                 }
                 break;
-
-
-
             case 2:
                 System.out.print("Hãy Nhập SĐT: ");
                 String sdtCanTim = sc.nextLine();

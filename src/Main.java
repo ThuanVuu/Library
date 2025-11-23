@@ -14,7 +14,7 @@ public class Main {
             System.out.println("2. Đăng Ký.");
             System.out.println("3. Quên mật khẩu.");
             System.out.println("---------------------------------------");
-            System.out.print("Lựa chọn (1-3): ");
+            System.out.print("Lựa chọn (0-3): ");
             menu = Integer.parseInt(sc.nextLine());
             switch (menu) {
                 case 1:
@@ -24,6 +24,8 @@ public class Main {
                     app.dangKy();
                     break;
                 case 3:
+                    app.timMK();
+                    break;
             }
         } while (menu != 0);
     }
