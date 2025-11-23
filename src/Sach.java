@@ -15,6 +15,16 @@ public class Sach {
 
     }
 
+    public void nhapTT() {
+        System.out.print("Nhập tên sách: ");
+        this.setTenSach(sc.nextLine());
+        System.out.print("Nhập tên tác giả: ");
+        this.setTacGia(sc.nextLine());
+        this.setNgayXB();
+        System.out.print("Nhập mã sách: ");
+        this.setMaSach(Integer.parseInt(sc.nextLine()));
+    }
+
     public String getTacGia() {
         return tacGia;
     }
@@ -56,7 +66,6 @@ public class Sach {
                 System.out.print("Nhập ngày tháng (dd/MM/yyyy): ");
                 String input = sc.nextLine();
                 transInput = LocalDate.parse(input, formatter);
-                System.out.println("Ngày tháng đã nhập: " + transInput.format(formatter));
                 break;
             } catch (DateTimeParseException e) {
                 System.out.println("Lỗi: ngày hoặc tháng không hợp lệ. Vui lòng nhập lại!!");

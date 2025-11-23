@@ -109,7 +109,6 @@ public class NguoiDung {
                 System.out.print("Nhập ngày tháng (dd/MM/yyyy): ");
                 String input = sc.nextLine();
                 transInput = LocalDate.parse(input, formatter);
-                System.out.println("Ngày tháng đã nhập: " + transInput.format(formatter));
                 break;
             } catch (DateTimeParseException e) {
                 System.out.println("Lỗi: ngày hoặc tháng không hợp lệ. Vui lòng nhập lại!!");
