@@ -52,16 +52,12 @@ public class ThuThu extends NguoiDung{
         System.out.print("Hãy Nhập Mã Số Thẻ Thư Viện: ");
         this.setMaSoTheTT(Integer.parseInt(sc.nextLine()));
     }
-
-    @Override
-    public String toString()
-    {
-        return super.toString()+" - "+caTruc+" - "+phongBan+" - "+maSoTheTT;
-    }
-
     @Override
     public void Xuat()
     {
-        System.out.println(this.toString());
+        super.Xuat();
+        System.out.println("Ca Trực: "+caTruc);
+        System.out.println("Phòng Ban: "+phongBan);
+        System.out.println("Mã Số Thẻ Thư Viện: "+maSoTheTT);
     }
 }

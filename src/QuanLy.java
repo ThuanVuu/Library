@@ -51,16 +51,14 @@ public class QuanLy extends NguoiDung{
         System.out.print("Hãy Nhập Vai Trò: ");
         this.setVaiTro(sc.nextLine());
     }
-    @Override
-    public String toString()
-    {
-        return super.toString()+" - "+phongBan+" - "+idQuanLy+" - "+vaiTro;
-    }
 
     @Override
     public void Xuat()
     {
-        System.out.println(this.toString());
+        super.Xuat();
+        System.out.println("Phòng Ban: "+phongBan);
+        System.out.println("Mã Quản Lý: "+idQuanLy);
+        System.out.println("Vai Trò: "+vaiTro);
     }
 
 
