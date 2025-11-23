@@ -18,6 +18,8 @@ public class Main {
             menu = Integer.parseInt(sc.nextLine());
             switch (menu) {
                 case 1:
+                    app.dangNhap();
+                    break;
                 case 2:
                     app.dangKy();
                     break;
