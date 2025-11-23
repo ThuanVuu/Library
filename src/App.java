@@ -83,6 +83,23 @@ public class App {
             }
             if (checkMK && checkTK) {
                 System.out.println("Đăng nhập thành công!!");
+                switch(tk.getRole()) {
+                    case "SinhVien":
+                        boolean menu = true;
+                        while (menu) {
+                            System.out.println("----------------------Menu Chức Năng----------------------");
+                            System.out.println("0. Thoát.");
+                            System.out.println("1. Lập yêu cầu mượn sách.");
+                            System.out.println("2. Lập yêu cầu trả sách.");
+                            System.out.println("3. Xem thông tin phạt.");
+                            System.out.println("4. Sửa thông tin cá nhân.");
+                            System.out.println("5. Tìm kiếm sách.");
+                            System.out.println("6. Nộp phạt.");
+                            System.out.println("----------------------------------------------------------");
+                            System.out.print("Lựa chọn (0 - 5): ");
+                            int choice = Integer.parseInt(sc.nextLine());
+                        }
+                }
             }
             i++;
         }
