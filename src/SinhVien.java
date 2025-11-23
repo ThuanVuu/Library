@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class SinhVien extends NguoiDung{
@@ -33,12 +32,8 @@ public class SinhVien extends NguoiDung{
         return theTV;
     }
 
-    public void settheTV(int theTV) throws Exception {
+    public void settheTV(int theTV) {
 
-        if(theTV <0)
-        {
-            throw new Exception("Không thể bé hơn 0");
-        }
         this.theTV = theTV;
     }
 
@@ -56,20 +51,9 @@ public class SinhVien extends NguoiDung{
         super.NhapTT();
         System.out.println("Hãy Nhập Mã Số Sinh Viên: ");
         this.setmssv(sc.nextLine());
-        boolean KT = false;
-        while(!KT){
-            try{
-                System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
-                this.settheTV(Integer.parseInt(sc.nextLine()));
-                KT = true;
-            }
-            catch(Exception e){
-                System.out.println("Lỗi"+ e.getMessage());
-                System.out.println("Hãy Nhập Lại!!");
-            }
-        }
 
-
+        System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
+        this.settheTV(Integer.parseInt(sc.nextLine()));
     }
 
     @Override

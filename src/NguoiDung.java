@@ -12,11 +12,8 @@ public class NguoiDung {
         return MaSo;
     }
 
-    public void setMaSo(int MaSo) throws Exception {
-       if(MaSo<0)
-       {
-           throw new Exception("Mã Số Không Bé Hơn 0");
-       }
+    public void setMaSo(int MaSo)  {
+
         this.MaSo = MaSo;
     }
 
@@ -65,23 +62,11 @@ public class NguoiDung {
 
     public void NhapTT()
     {
-        boolean KT = false;
+
         System.out.print("Hãy Nhập Tên: ");
         this.setTen(sc.nextLine());
-
-        while(!KT)
-        {
-            try{
-                System.out.println("Hãy Nhâp Mã Số: ");
-                this.setMaSo(Integer.parseInt(sc.nextLine()));
-                KT = true;
-            }
-            catch(Exception e){
-                System.out.println("Lỗi"+e.getMessage());
-                System.out.println("Hãy Nhập Lại!!");
-            }
-        }
-
+        System.out.println("Hãy Nhâp Mã Số: ");
+        this.setMaSo(Integer.parseInt(sc.nextLine()));
         System.out.println("Hãy Nhập Email: ");
         this.setEmail(sc.nextLine());
         System.out.println("Hãy Nhập Số Điện Thoại: ");
