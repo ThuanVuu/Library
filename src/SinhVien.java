@@ -55,17 +55,12 @@ public class SinhVien extends NguoiDung{
         System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
         this.settheTV(Integer.parseInt(sc.nextLine()));
     }
-
-    @Override
-    public String toString()
-    {
-        return super.toString()+"\n"+"MSSV: "+mssv+"\n"+"Mã Số Thẻ Thư Viện: "+theTV ;
-    }
-
     @Override
     public void Xuat()
     {
-        System.out.println(this.toString());
+        super.Xuat();
+        System.out.print("Mã Số Sinh Viên: "+mssv);
+        System.out.print("Mã Thẻ Thư Viện: "+theTV);
     }
 
 }

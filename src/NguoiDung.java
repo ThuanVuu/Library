@@ -78,14 +78,9 @@ public class NguoiDung {
         this.setDiaChi(sc.nextLine());
     }
 
-    public String toString()
-    {
-        return"Tên: "+Ten+"\n"+"Mã Số: "+MaSo+"\n"+"Email: "+Email+"\n"+"Số Điện Thoại: "+SDT+"\n"+"Địa Chỉ: "+DiaChi;
-    }
-
     public void Xuat()
     {
-        System.out.println(this.toString());
+        System.out.print("Tên: "+Ten+"\n"+"Mã Số: "+MaSo+"\n"+"Email: "+Email+"\n"+"Số Điện Thoại: "+SDT+"\n"+"Địa Chỉ: "+DiaChi);
     }
 
     public String setDate(){
