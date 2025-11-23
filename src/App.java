@@ -16,7 +16,6 @@ public class App {
 
     public App() {
         TaiKhoan.addFromFile(fileTK);
-        SinhVien.addFromFile(fileTK);
     }
 
     public void dangKy() {
