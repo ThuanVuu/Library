@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -30,6 +33,19 @@ public class Sach {
         System.out.println("Tác Giả: " + tacGia);
         System.out.println("Ngày Xuất Bản: " + ngayXB);
         System.out.println("Mã sách: " + maSach);
+    }
+
+    public void saveToFile(String filePath, boolean choice) {
+        File file = new File(filePath);
+        try {
+            FileWriter fw = new FileWriter(file, choice);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.println(this);
+            fw.close();
+            pw.close();
+        } catch (Exception e) {
+            System.out.println("Lỗi: " + e.getMessage());
+        }
     }
 
     public String getTacGia() {
@@ -81,4 +97,6 @@ public class Sach {
 
         return transInput.format(formatter);
     }
+
+
 }
