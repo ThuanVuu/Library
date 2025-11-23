@@ -8,7 +8,7 @@ public class Sach {
     Scanner sc = new Scanner(System.in);
     private String tacGia;
     private String tenSach;
-    private LocalDate ngayXB;
+    private String ngayXB;
     private int maSach;
 
     public Sach() {
@@ -23,6 +23,13 @@ public class Sach {
         this.setNgayXB();
         System.out.print("Nhập mã sách: ");
         this.setMaSach(Integer.parseInt(sc.nextLine()));
+    }
+
+    public void xuatTT() {
+        System.out.println("Tên Sách: " + tenSach);
+        System.out.println("Tác Giả: " + tacGia);
+        System.out.println("Ngày Xuất Bản: " + ngayXB);
+        System.out.println("Mã sách: " + maSach);
     }
 
     public String getTacGia() {
@@ -41,7 +48,7 @@ public class Sach {
         this.tenSach = tenSach;
     }
 
-    public LocalDate getNgayXB() {
+    public String getNgayXB() {
         return ngayXB;
     }
 
@@ -57,7 +64,7 @@ public class Sach {
         this.maSach = maSach;
     }
 
-    public LocalDate setDate(){
+    public String setDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate transInput = null;
 
@@ -72,6 +79,6 @@ public class Sach {
             }
         }
 
-        return transInput;
+        return transInput.format(formatter);
     }
 }

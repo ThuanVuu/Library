@@ -7,7 +7,7 @@ public class SinhVien extends NguoiDung{
     private String mssv;
     private int theTV;
     private boolean phatTraSachMuon = false;
-    private LocalDate ngayVaoTV;
+    private String ngayVaoTV;
 
     public SinhVien() {
 
@@ -42,7 +42,7 @@ public class SinhVien extends NguoiDung{
         this.theTV = theTV;
     }
 
-    public LocalDate getNgayVaoTV() {
+    public String getNgayVaoTV() {
         return this.ngayVaoTV;
     }
 

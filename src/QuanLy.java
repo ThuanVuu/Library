@@ -4,13 +4,13 @@ public class QuanLy extends NguoiDung{
     private String phongBan;
     private int idQuanLy;
     private String vaiTro;
-    private LocalDate ngayLamViec;
+    private String ngayLamViec;
 
     public QuanLy() {
 
     }
 
-    public LocalDate getNgayLamViec() {
+    public String getNgayLamViec() {
         return this.ngayLamViec;
     }
 

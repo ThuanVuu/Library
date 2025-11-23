@@ -100,7 +100,7 @@ public class NguoiDung {
         System.out.println(this.toString());
     }
 
-    public LocalDate setDate(){
+    public String setDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate transInput = null;
 
@@ -115,6 +115,6 @@ public class NguoiDung {
             }
         }
 
-        return transInput;
+        return transInput.format(formatter);
     }
 }

@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class ThuThu extends NguoiDung{
     private String caTruc;
-    private LocalDate ngayLamViec;
+    private String ngayLamViec;
     private String phongBan;
     private int maSoTheTT;
 
@@ -22,7 +22,7 @@ public class ThuThu extends NguoiDung{
         return this.maSoTheTT;
     }
 
-    public LocalDate getNgayLamViec() {
+    public String getNgayLamViec() {
         return this.ngayLamViec;
     }
 
