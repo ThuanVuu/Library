@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class NguoiDung {
@@ -100,12 +101,20 @@ public class NguoiDung {
     }
 
     public LocalDate setDate(){
-        System.out.print("Nhập ngày tháng (dd/MM/yyyy): ");
-        String input = sc.nextLine();
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate transInput = LocalDate.parse(input, formatter);
-        System.out.println("Ngày tháng đã nhập: " + transInput);
+        LocalDate transInput = null;
+
+        while (true) {
+            try {
+                System.out.print("Nhập ngày tháng (dd/MM/yyyy): ");
+                String input = sc.nextLine();
+                transInput = LocalDate.parse(input, formatter);
+                System.out.println("Ngày tháng đã nhập: " + transInput.format(formatter));
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("Lỗi: ngày hoặc tháng không hợp lệ. Vui lòng nhập lại!!");
+            }
+        }
 
         return transInput;
     }
