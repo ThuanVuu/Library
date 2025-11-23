@@ -6,6 +6,7 @@ public class DangNhap {
 
     private String taiKhoan;
     private String matKhau;
+    private String role;
 
     public DangNhap() {
 
@@ -16,6 +17,16 @@ public class DangNhap {
         this.setTaiKhoan(sc.nextLine());
         System.out.print("Nhập mật khẩu: ");
         this.setMatKhau(sc.nextLine());
+        System.out.print("Nhập vai trò: ");
+        this.setRole(sc.nextLine());
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getTaiKhoan() {
