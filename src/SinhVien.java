@@ -67,10 +67,10 @@ public class SinhVien extends NguoiDung{
     public void NhapTT()
     {
         super.NhapTT();
-        System.out.println("Hãy Nhập Mã Số Sinh Viên: ");
+        System.out.print("Hãy Nhập Mã Số Sinh Viên: ");
         this.setmssv(sc.nextLine());
 
-        System.out.println("Hãy Nhập Mã Thẻ Thư Viện: ");
+        System.out.print("Hãy Nhập Mã Thẻ Thư Viện: ");
         this.settheTV(Integer.parseInt(sc.nextLine()));
     }
 

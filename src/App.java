@@ -186,6 +186,7 @@ public class App {
                                     this.dangKy(2);
                                     break;
                                 case 8:
+                                    this.xoa(2);
                                 case 9:
                                 case 10:
                                 default:
@@ -260,7 +261,7 @@ public class App {
                 for (SinhVien sv : danhSachSV) {
                     if (sv.getTaiKhoan().equals(danhSachLoc.get(i - 1).getTaiKhoan())) {
                         danhSachSV.remove(sv);
-
+                        break;
                     }
                 }
                 break;
