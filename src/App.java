@@ -245,12 +245,14 @@ public class App {
     public void xoa(int chon)
     {
         ArrayList<TaiKhoan> danhSachLoc = new ArrayList<>();
+        System.out.print("Bạn muốn xóa: 1-Sinh Viên 2-Thủ Thư 3-Sách:");
+        int choose = Integer.parseInt(sc.nextLine());
 
-        switch(chon)
+        switch(choose)
         {
             case 1:
                 //đọc file
-                System.out.print("Hãy nhập tên cần xóa: ");
+                System.out.print("Hãy nhập tên sinh viên cần xóa: ");
                 String tenCanXoa = sc.nextLine();
                 this.locTheoTen(tenCanXoa, danhSachLoc, 1);
                 for (int i = 0; i < danhSachLoc.size(); i++) {
@@ -267,7 +269,7 @@ public class App {
                 break;
             case 2:
                 //đọc file
-                System.out.print("Hãy nhập tên cần xóa: ");
+                System.out.print("Hãy nhập tên thủ thư cần xóa: ");
                 String tenTTCanXoa = sc.nextLine();
                 for(ThuThu tt : danhSachTT)
                 {
@@ -505,7 +507,125 @@ public class App {
                 break;
         }
     }
-
+    public void Them()
+    {
+        System.out.print("Bạn muốn thêm: 1-Sinh Viên 2-Thủ Thư 3-Sách");
+        int chonthem = Integer.parseInt(sc.nextLine());
+        switch (chonthem)
+        {
+            case 1:
+                SinhVien sv = new SinhVien();
+                System.out.println("Hãy nhập thông tin sinh viên");
+                sv.NhapTT();
+                System.out.println("Nhập thành công!!");
+                sv.Xuat();
+                sv.addFromFile(fileTK);
+                break;
+            case 2:
+                ThuThu tt = new ThuThu();
+                System.out.println("Hãy nhập thông tin thủ thư");
+                tt.NhapTT();
+                System.out.println("Nhập thành công!!");
+                tt.Xuat();
+                tt.addFromFile(fileTK);
+                break;
+            case 3:
+                Sach s = new Sach();
+                System.out.println("Hãy nập thông tin sách");
+                s.nhapTT();
+                System.out.println("Nhập thành công!!");
+                s.xuatTT();
+                //s.saveToFile();
+                break;
+            default:
+                System.out.print("Không hợp lệ!!");
+                break;
+        }
+    }
+    public void Sua(int chon)
+    {
+        ArrayList<TaiKhoan> dsloc = new ArrayList<>();
+        System.out.print("Hãy chọn để sửa: 1-Sinh Viên 2-Thủ Thư 3-Sách");
+        int chonsua = Integer.parseInt(sc.nextLine());
+        switch(chonsua)
+        {
+            case 1:
+                //đọc file
+                System.out.print("Hãy nhập tên sinh viên cần sửa: ");
+                String tenCanSua = sc.nextLine();
+                this.locTheoTen(tenCanSua , dsloc , chon =1);
+                for(int i=0 ; i < dsloc.size() ; i++)
+                {
+                    System.out.println((i + 1) + ". " + dsloc.get(i));
+                }
+                System.out.print("Chọn đối tượng cần sửa: ");
+                int i = Integer.parseInt(sc.nextLine());
+                for (SinhVien sv : danhSachSV) {
+                    if (sv.getTaiKhoan().equals(dsloc.get(i - 1).getTaiKhoan())) {
+                        danhSachSV.remove(sv);
+                        break;
+                    }
+                }
+                SinhVien sv = new SinhVien();
+                System.out.println("Hãy nhập thông tin sinh viên");
+                sv.NhapTT();
+                System.out.println("Nhập thành công!!");
+                danhSachSV.add(sv);
+                sv.Xuat();
+                sv.addFromFile(fileTK);
+                break;
+            case 2:
+                //đọc file
+                System.out.print("Hãy nhập tên thủ thư cần sửa: ");
+                String tenTTSua = sc.nextLine();
+                this.locTheoTen(tenTTSua , dsloc , chon =1);
+                for(int j =0 ; j < dsloc.size() ; j++)
+                {
+                    System.out.println((j + 1) + ". " + dsloc.get(j));
+                }
+                System.out.print("Chọn đối tượng cần sửa: ");
+                int j = Integer.parseInt(sc.nextLine());
+                for (ThuThu tt : danhSachTT) {
+                    if (tt.getTaiKhoan().equals(dsloc.get(j - 1).getTaiKhoan())) {
+                        danhSachSV.remove(tt);
+                        break;
+                    }
+                }
+                ThuThu tt = new ThuThu();
+                System.out.println("Hãy nhập thông tin thủ thư:");
+                tt.NhapTT();
+                System.out.println("Nhập thành công!!");
+                danhSachTT.add(tt);
+                tt.Xuat();
+                tt.addFromFile(fileTK);
+                break;
+            case 3:
+                //đọc file
+                System.out.print("Hãy nhập tên sách cần sửa: ");
+                String tenSSua = sc.nextLine();
+                this.locTheoTen(tenSSua , dsloc , chon =1);
+                for(int f =0 ; f < dsloc.size() ; f++)
+                {
+                    System.out.println((f + 1) + ". " + dsloc.get(f));
+                }
+                System.out.print("Chọn đối tượng cần sửa: ");
+                int f = Integer.parseInt(sc.nextLine());
+                for (Sach s : khoSach) {
+                    if (s.getTenSach().equalsIgnoreCase(tenSSua)) {
+                        danhSachSV.remove(s);
+                        break;
+                    }
+                }
+                Sach s = new Sach();
+                System.out.println("Hãy nhập thông tin Sách:");
+                s.nhapTT();
+                System.out.println("Nhập thành công!!");
+                khoSach.add(s);
+                s.xuatTT();
+                //s.addFromFile(fileTK);
+                break;
+        }
+    }
 
 
 }
