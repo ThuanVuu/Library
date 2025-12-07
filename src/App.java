@@ -1,4 +1,3 @@
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -143,8 +142,6 @@ public class App {
                                     this.dangKy(1);
                                     break;
                                 case 6:
-                                    this.xoa(1);
-                                    break;
                                 case 7:
                                 case 8:
                                 default:
@@ -213,7 +210,7 @@ public class App {
 
     }
 
-    public int locTheoTen(String name, ArrayList<NguoiDung> list, int chon) {
+    public int locTheoTen(String name, ArrayList<TaiKhoan> list, int chon) {
         int count = 0;
 
         switch(chon) {
@@ -247,7 +244,7 @@ public class App {
 
     public void xoa(int chon)
     {
-        ArrayList<NguoiDung> danhSachLoc = new ArrayList<>();
+        ArrayList<TaiKhoan> danhSachLoc = new ArrayList<>();
 
         switch(chon)
         {
@@ -264,11 +261,9 @@ public class App {
                 for (SinhVien sv : danhSachSV) {
                     if (sv.getTaiKhoan().equals(danhSachLoc.get(i - 1).getTaiKhoan())) {
                         danhSachSV.remove(sv);
-                        this.updateFile("DangNhap.txt", sv.getTen(), danhSachTK);
                         break;
                     }
                 }
-                System.out.println(danhSachSV.toString());
                 break;
             case 2:
                 //đọc file
@@ -279,7 +274,7 @@ public class App {
                     if(tt.getTen().equalsIgnoreCase(tenTTCanXoa))
                     {
                         danhSachTT.remove(tt);
-                        System.out.print("Đã Xóa Thành Công!!!");
+                        System.out.print("Đã xóa Thành Công!!!");
                         break;
                     }
                 }
@@ -293,13 +288,13 @@ public class App {
                     if(s.getTenSach().equalsIgnoreCase(tenSCanXoa))
                     {
                         khoSach.remove(s);
-                        System.out.print("Đã Xóa Thành Công!!!");
+                        System.out.print("Đã xóa Thành Công!!!");
                         break;
                     }
                 }
                 break;
             default:
-                System.out.print("Lựa chọn ko hợp lệ ");
+                System.out.print("Lựa Chọn ko hợp lệ ");
                 break;
         }
     }
@@ -511,21 +506,6 @@ public class App {
         }
     }
 
-    public void updateFile(String path, String taikhoan, List<TaiKhoan> list) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getTaiKhoan().equalsIgnoreCase(taikhoan)) {
-                list.remove(i);
-                System.out.println("Da xoa!!");
-            }
-        }
-        try {
-            FileWriter writer = new FileWriter(path);
-            writer.close();
-        } catch (Exception e) {
 
-        }
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).saveToFile(path, true);
-        }
-    }
+
 }
