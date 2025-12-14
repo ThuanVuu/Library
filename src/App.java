@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,16 +9,19 @@ public class App {
     public static final String fileSach = "KhoSach.txt";
     public static final String fileDaMuon = "SachMuon.txt";
     public static final String fileTK = "DangNhap.txt";
+    public static final String fileDonMuon = "DonMuon.txt";
 
     public static List<QuanLy> danhSachQL = new ArrayList<>();
     public static List<SinhVien> danhSachSV = new ArrayList<>();
     public static List<ThuThu> danhSachTT = new ArrayList<>();
     public static List<Sach> khoSach = new ArrayList<>();
     public static List<TaiKhoan> danhSachTK = new ArrayList<>();
+    public static List<DonMuonSach> donMuonSach = new ArrayList<>();
 
 
     public App() {
         TaiKhoan.addFromFile(fileTK);
+        Sach.addFromFile(fileSach);
     }
 
     public void dangKy(int choice) {
@@ -102,10 +106,20 @@ public class App {
                                     menu = false;
                                     break;
                                 case 1:
+                                    DonMuonSach dms = new DonMuonSach();
+                                    dms.setNguoiMuon(tk.getTaiKhoan());
+                                    dms.taoDon();
+                                    dms.xuatDon();
+                                    dms.saveToFile(fileDonMuon, true);
+                                    break;
                                 case 2:
                                 case 3:
                                 case 4:
                                 case 5:
+                                    System.out.print("Nhập tên sách: ");
+                                    String tenSach = sc.nextLine();
+                                    this.timKiemSach(tenSach);
+                                    break;
                                 case 6:
                                 case 7:
                                 default:
@@ -135,8 +149,14 @@ public class App {
                                     menu2 = false;
                                     break;
                                 case 1:
+                                    this.themSach();
+                                    break;
                                 case 2:
+                                    this.suaSach(locSachTheoTen());
+                                    break;
                                 case 3:
+                                    this.xoaSach(locSachTheoTen());
+                                    break;
                                 case 4:
                                 case 5:
                                     this.dangKy(1);
@@ -144,6 +164,10 @@ public class App {
                                 case 6:
                                 case 7:
                                 case 8:
+                                    System.out.print("Nhập tên sách: ");
+                                    String tenSach = sc.nextLine();
+                                    this.timKiemSach(tenSach);
+                                    break;
                                 default:
                                     System.out.println("Vui lòng nhập từ 0 - 8!!");
                                     break;
@@ -173,8 +197,14 @@ public class App {
                                     menu3 = false;
                                     break;
                                 case 1:
+                                    this.themSach();
+                                    break;
                                 case 2:
+                                    this.suaSach(locSachTheoTen());
+                                    break;
                                 case 3:
+                                    this.xoaSach(locSachTheoTen());
+                                    break;
                                 case 4:
                                     this.dangKy(1);
                                     break;
@@ -187,8 +217,13 @@ public class App {
                                     break;
                                 case 8:
                                     this.xoa(2);
+                                    break;
                                 case 9:
                                 case 10:
+                                    System.out.print("Nhập tên sách: ");
+                                    String tenSach = sc.nextLine();
+                                    this.timKiemSach(tenSach);
+                                    break;
                                 default:
                                     System.out.println("Vui lòng nhập từ 0 - 10!!");
                                     break;
@@ -506,6 +541,115 @@ public class App {
         }
     }
 
+    public void themSach() {
+        Sach sach = new Sach();
+        sach.nhapTT();
+        sach.saveToFile(fileSach, true);
+    }
+
+    public void updateSach() {
+        try {
+            FileWriter writer = new FileWriter(fileSach);
+            writer.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        for (Sach s : khoSach) {
+            s.saveToFile(fileSach, true);
+        }
+    }
+
+    public void inSach() {
+        for (int i = 0; i < khoSach.size(); i++) {
+            System.out.println(khoSach.get(i));
+        }
+    }
+
+    public void suaSach(String name) {
+        for (Sach s : khoSach) {
+            if (s.getTenSach().equalsIgnoreCase(name)) {
+                System.out.println("Bạn muốn sửa phần nào?");
+                System.out.println("0. Thoát.");
+                System.out.println("1. Tên sách.");
+                System.out.println("2. Tên tác giả.");
+                System.out.println("3. Ngày xuất bản.");
+                System.out.println("4. Mã sách.");
+                System.out.print("Nhập số để chọn chức năng (1 - 4): ");
+                int choice = Integer.parseInt(sc.nextLine());
+                switch(choice) {
+                    case 1:
+                        System.out.print("Nhập tên sách mới: ");
+                        String tenMoi = sc.nextLine();
+                        s.setTenSach(tenMoi);
+                        break;
+                    case 2:
+                        System.out.print("Nhập tên tác giả mới: ");
+                        String tgMoi = sc.nextLine();
+                        s.setTacGia(tgMoi);
+                        break;
+                    case 3:
+                        System.out.print("Nhập ngày xuất bản mới: ");
+                        s.setNgayXB();
+                        break;
+                    case 4:
+                        System.out.print("Nhập mã sách mới: ");
+                        int maMoi = Integer.parseInt(sc.nextLine());
+                        s.setMaSach(maMoi);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        this.updateSach();
+    }
+
+    public void xoaSach(String name) {
+        for (Sach s : khoSach) {
+            if (s.getTenSach().equalsIgnoreCase(name)) {
+                khoSach.remove(s);
+                System.out.println("Đã xoá!!");
+            }
+        }
+        this.updateSach();
+    }
 
 
+
+    public String locSachTheoTen() {
+        ArrayList<Sach> arr = new ArrayList<>();
+
+        System.out.print("Nhập tên: ");
+        String ten = sc.nextLine();
+        for (Sach s : khoSach) {
+            if (s.getTenSach().toLowerCase().contains(ten.toLowerCase())) {
+                arr.add(s);
+            }
+        }
+
+        System.out.println("Danh sách cùng tên: ");
+        for (int i = 0; i < arr.size() - 1; i++) {
+            System.out.println((i + 1) + ". " + arr.get(i).getTenSach());
+        }
+        System.out.print("Bạn chọn sách nào: ");
+        int choice = Integer.parseInt(sc.nextLine());
+
+        return arr.get(choice - 1).getTenSach();
+    }
+
+    public void timKiemSach(String name) {
+        System.out.println("\n".repeat(100));
+        System.out.println("Danh sách cùng tên: ");
+        for (Sach s : khoSach) {
+            if (s.getTenSach().toLowerCase().contains(name.toLowerCase())) {
+                System.out.println(s);
+            }
+        }
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
