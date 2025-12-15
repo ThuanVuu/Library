@@ -152,6 +152,7 @@ public class App {
                                     break;
                                 case 3:
                                     this.xoaSach(locSachTheoTen());
+                                    System.out.println("Đã xoá!!");
                                     break;
                                 case 4:
                                 case 5:
@@ -200,6 +201,7 @@ public class App {
                                     break;
                                 case 3:
                                     this.xoaSach(locSachTheoTen());
+                                    System.out.println("Đã xoá!!");
                                     break;
                                 case 4:
                                     this.dangKy(1);
@@ -618,7 +620,6 @@ public class App {
         for (Sach s : khoSach) {
             if (s.getTenSach().equalsIgnoreCase(name)) {
                 khoSach.remove(s);
-                System.out.println("Đã xoá!!");
             }
         }
         this.updateSach();
@@ -720,6 +721,7 @@ public class App {
         dms.xuatDon();
         dms.saveToFile(fileDonMuon, true);
         dms.getSachMuon();
+
     }
 
 }
