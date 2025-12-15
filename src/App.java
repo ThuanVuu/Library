@@ -652,4 +652,48 @@ public class App {
             System.out.println(e.getMessage());
         }
     }
+
+    public void ThemSV()
+    {
+        SinhVien sv = new SinhVien();
+        sv.NhapTT();
+        danhSachSV.add(sv);
+        danhSachTK.add(sv);
+        sv.saveToFile(fileTK , true);
+    }
+    public void XoaSV()
+    {
+        System.out.print("Hãy nhập tên sinh viên muốn xóa: ");
+        String tencanxoa = sc.nextLine();
+        for(SinhVien sv : danhSachSV)
+        {
+            if(sv.getTen().equalsIgnoreCase(tencanxoa))
+            {
+                danhSachSV.remove(sv);
+                System.out.print("Đã xóa sinh viên này!!!");
+            }
+            sv.saveToFile(fileTK , true);
+        }
+    }
+    public void SuaSV()
+    {
+        System.out.print("Hãy nhập tên sinh viên muốn sửa: ");
+        String tencansua = sc.nextLine();
+
+        for(SinhVien sv : danhSachSV)
+        {
+            if(sv.getTen().equalsIgnoreCase(tencansua))
+            {
+                danhSachSV.remove(sv);
+                SinhVien svv = new SinhVien();
+                svv.NhapTT();
+                danhSachSV.add(svv);
+                danhSachTK.add(svv);
+                System.out.print("Đã sửa thành công!!");
+            }
+            sv.saveToFile(fileTK , true);
+        }
+    }
+
+
 }
