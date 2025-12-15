@@ -683,7 +683,7 @@ public class App {
             }
 
         }
-        updateSV();
+        this.updateTK();
     }
     public void SuaSV() {
         System.out.print("Hãy nhập tên sinh viên muốn sửa: ");
