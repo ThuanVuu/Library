@@ -675,25 +675,35 @@ public class App {
             sv.saveToFile(fileTK , true);
         }
     }
-    public void SuaSV()
-    {
+    public void SuaSV() {
         System.out.print("Hãy nhập tên sinh viên muốn sửa: ");
-        String tencansua = sc.nextLine();
+        String tenCanSua = sc.nextLine();
 
-        for(SinhVien sv : danhSachSV)
-        {
-            if(sv.getTen().equalsIgnoreCase(tencansua))
-            {
-                danhSachSV.remove(sv);
-                SinhVien svv = new SinhVien();
-                svv.NhapTT();
-                danhSachSV.add(svv);
-                danhSachTK.add(svv);
-                System.out.print("Đã sửa thành công!!");
+        boolean found = false;
+
+        for (SinhVien sv : danhSachSV) {
+            if (sv.getTen().equalsIgnoreCase(tenCanSua)) {
+
+                System.out.println("Nhập thông tin mới:");
+                sv.NhapTT();
+
+                found = true;
+                System.out.println("Đã sửa thành công!!");
+                SinhVien s = new SinhVien();
+                s.saveToFile(fileTK , true);
+                break;
             }
-            sv.saveToFile(fileTK , true);
         }
+
+        if (!found) {
+            System.out.println("Không tìm thấy sinh viên!");
+            return;
+        }
+
+
+
     }
+
 
 
 }
