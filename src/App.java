@@ -106,11 +106,7 @@ public class App {
                                     menu = false;
                                     break;
                                 case 1:
-                                    DonMuonSach dms = new DonMuonSach();
-                                    dms.setNguoiMuon(tk.getTaiKhoan());
-                                    dms.taoDon();
-                                    dms.xuatDon();
-                                    dms.saveToFile(fileDonMuon, true);
+                                    this.muonSach(tk.getTaiKhoan());
                                     break;
                                 case 2:
                                 case 3:
@@ -704,6 +700,13 @@ public class App {
 
     }
 
-
+    public void muonSach(String tenTK) {
+        DonMuonSach dms = new DonMuonSach();
+        dms.setNguoiMuon(tenTK);
+        dms.taoDon();
+        dms.xuatDon();
+        dms.saveToFile(fileDonMuon, true);
+        dms.getSachMuon();
+    }
 
 }
