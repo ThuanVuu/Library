@@ -556,7 +556,7 @@ public class App {
         }
     }
 
-    public void updateSV() {
+    public void updateTK() {
         try {
             FileWriter writer = new FileWriter(fileTK);
             writer.close();
@@ -564,8 +564,8 @@ public class App {
             System.out.println(e.getMessage());
         }
 
-        for (SinhVien sv : danhSachSV) {
-            sv.saveToFile(fileSach, true);
+        for (TaiKhoan tk : danhSachTK) {
+            tk.saveToFile(fileTK, true);
         }
     }
 
@@ -708,7 +708,7 @@ public class App {
             System.out.println("Không tìm thấy sinh viên!");
             return;
         }
-        updateSV();
+        this.updateTK();
 
 
     }
