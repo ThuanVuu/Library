@@ -560,6 +560,19 @@ public class App {
         }
     }
 
+    public void updateSV() {
+        try {
+            FileWriter writer = new FileWriter(fileTK);
+            writer.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        for (SinhVien sv : danhSachSV) {
+            sv.saveToFile(fileSach, true);
+        }
+    }
+
     public void inSach() {
         for (int i = 0; i < khoSach.size(); i++) {
             System.out.println(khoSach.get(i));
@@ -672,8 +685,9 @@ public class App {
                 danhSachSV.remove(sv);
                 System.out.print("Đã xóa sinh viên này!!!");
             }
-            sv.saveToFile(fileTK , true);
+
         }
+        updateSV();
     }
     public void SuaSV() {
         System.out.print("Hãy nhập tên sinh viên muốn sửa: ");
@@ -689,8 +703,7 @@ public class App {
 
                 found = true;
                 System.out.println("Đã sửa thành công!!");
-                SinhVien s = new SinhVien();
-                s.saveToFile(fileTK , true);
+
                 break;
             }
         }
@@ -699,7 +712,7 @@ public class App {
             System.out.println("Không tìm thấy sinh viên!");
             return;
         }
-
+        updateSV();
 
 
     }
