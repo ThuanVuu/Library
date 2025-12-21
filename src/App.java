@@ -208,6 +208,8 @@ public class App {
                                     this.xoa(1);
                                     break;
                                 case 6:
+                                    SuaSV();
+                                    break;
                                 case 7:
                                     this.dangKy(2);
                                     break;
@@ -674,15 +676,24 @@ public class App {
     {
         System.out.print("Hãy nhập tên sinh viên muốn xóa: ");
         String tencanxoa = sc.nextLine();
-        for(SinhVien sv : danhSachSV)
-        {
-            if(sv.getTen().equalsIgnoreCase(tencanxoa))
-            {
-                danhSachSV.remove(sv);
-                System.out.print("Đã xóa sinh viên này!!!");
-            }
+        boolean found = false;
 
+        for (int i = danhSachSV.size() - 1; i >= 0; i--)
+        {
+            if (danhSachSV.get(i).getTen().equalsIgnoreCase(tencanxoa))
+            {
+                danhSachSV.remove(i);
+                found = true;
+                System.out.println("Đã xóa sinh viên này!!!");
+                break;
+            }
         }
+
+        if (!found)
+        {
+            System.out.println("Không tìm thấy sinh viên cần xóa!");
+        }
+
         this.updateTK();
     }
     public void SuaSV() {
@@ -709,8 +720,66 @@ public class App {
             return;
         }
         this.updateTK();
+    }
 
+    public void themTT()
+    {
+        ThuThu tt = new ThuThu();
+        tt.NhapTT();
+        danhSachTT.add(tt);
+        tt.saveToFile(fileTK , true);
+    }
 
+    public void xoaTT()
+    {
+        System.out.print("Hãy nhập tên Thủ Thư muốn xóa: ");
+        String name = sc.nextLine();
+        boolean found = false;
+
+        for (int i = danhSachTT.size() - 1; i >= 0; i--)
+        {
+            if (danhSachTT.get(i).getTen().equalsIgnoreCase(name))
+            {
+                danhSachTT.remove(i);
+                found = true;
+                System.out.println("Đã xóa thành công!");
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            System.out.println("Không tìm thấy Thủ Thư cần xóa!");
+        }
+
+        this.updateTK();
+    }
+
+    public void suaTT()
+    {
+        System.out.print("Hãy nhập tên thủ thư muốn sửa: ");
+        String tenTTCanSua = sc.nextLine();
+
+        boolean found = false;
+
+        for (ThuThu tt : danhSachTT) {
+            if (tt.getTen().equalsIgnoreCase(tenTTCanSua)) {
+
+                System.out.println("Nhập thông tin mới:");
+                tt.NhapTT();
+
+                found = true;
+                System.out.println("Đã sửa thành công!!");
+
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Không tìm thấy thủ thư!");
+            return;
+        }
+        this.updateTK();
     }
 
     public void muonSach(String tenTK) {
