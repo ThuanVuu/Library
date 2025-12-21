@@ -77,7 +77,6 @@ public class Sach {
             BufferedReader br = new BufferedReader(fr);
 
             String line;
-
             while ((line = br.readLine()) != null) {
                 String arr[] = line.split(" - ");
                 try {
@@ -95,6 +94,8 @@ public class Sach {
                     System.out.println("Xảy ra lỗi!!");
                 }
             }
+            br.close();
+            fr.close();
         } catch (Exception e) {
             System.out.println("Lỗi không thể đọc file!!");
         }
@@ -136,8 +137,8 @@ public class Sach {
         return ngayMuon;
     }
 
-    public void setNgayMuon() {
-        this.ngayMuon = this.setDate();
+    public void setNgayMuon(String ngayMuon) {
+        this.ngayMuon = ngayMuon;
     }
 
     public String getNguoiMuon() {
@@ -152,8 +153,8 @@ public class Sach {
         return ngayTra;
     }
 
-    public void setNgayTra() {
-        this.ngayTra = this.setDate();
+    public void setNgayTra(String ngayTra) {
+        this.ngayTra = ngayTra;
     }
 
     public String setDate(){

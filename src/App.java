@@ -14,14 +14,13 @@ public class App {
     public static List<QuanLy> danhSachQL = new ArrayList<>();
     public static List<SinhVien> danhSachSV = new ArrayList<>();
     public static List<ThuThu> danhSachTT = new ArrayList<>();
-    public static List<Sach> khoSach = new ArrayList<>();
+    public static ArrayList<Sach> khoSach = new ArrayList<>();
     public static List<TaiKhoan> danhSachTK = new ArrayList<>();
     public static List<DonMuonSach> donMuonSach = new ArrayList<>();
 
-
     public App() {
-        TaiKhoan.addFromFile(fileTK);
         Sach.addFromFile(fileSach);
+        TaiKhoan.addFromFile(fileTK);
     }
 
     public void dangKy(int choice) {
@@ -562,7 +561,7 @@ public class App {
         }
 
         for (Sach s : khoSach) {
-            s.saveToFile(fileSach, true);
+            s.saveToFile(fileSach, false);
         }
     }
 
@@ -579,8 +578,8 @@ public class App {
         }
     }
 
-    public void inSach() {
-        for (int i = 0; i < khoSach.size(); i++) {
+    public static void inSach() {
+        for (int i = 0; i < khoSach.size() - 1; i++) {
             System.out.println(khoSach.get(i));
         }
     }
@@ -637,23 +636,30 @@ public class App {
 
     public String locSachTheoTen() {
         ArrayList<Sach> arr = new ArrayList<>();
+        int count = 0;
 
         System.out.print("Nhập tên: ");
         String ten = sc.nextLine();
         for (Sach s : khoSach) {
             if (s.getTenSach().toLowerCase().contains(ten.toLowerCase())) {
                 arr.add(s);
+                count++;
             }
         }
 
-        System.out.println("Danh sách cùng tên: ");
-        for (int i = 0; i < arr.size() - 1; i++) {
-            System.out.println((i + 1) + ". " + arr.get(i).getTenSach());
-        }
-        System.out.print("Bạn chọn sách nào: ");
-        int choice = Integer.parseInt(sc.nextLine());
+        if (count >= 1) {
+            System.out.println("Danh sách cùng tên: ");
+            for (int i = 0; i < arr.size() - 1; i++) {
+                System.out.println((i + 1) + ". " + arr.get(i).getTenSach());
+            }
 
-        return arr.get(choice - 1).getTenSach();
+            System.out.print("Bạn chọn sách nào: ");
+            int choice = Integer.parseInt(sc.nextLine());
+
+            return arr.get(choice - 1).getTenSach();
+        } else {
+            return "Không tìm thấy sách trùng tên bạn muốn";
+        }
     }
 
     public void timKiemSach(String name) {
@@ -804,14 +810,26 @@ public class App {
         this.UpdateTK();
     }
 
+    public void setTTMuonSach(String ngayMuon, String ngayTra, String tenSach) {
+        for (Sach s : khoSach) {
+            if (s.getTenSach().equalsIgnoreCase(tenSach)) {
+                s.setNgayMuon(ngayMuon);
+                s.setNgayTra(ngayTra);
+            }
+        }
+        this.updateSach();
+    }
+
     public void muonSach(String tenTK) {
         DonMuonSach dms = new DonMuonSach();
         dms.setNguoiMuon(tenTK);
         dms.taoDon();
-        dms.xuatDon();
-        dms.saveToFile(fileDonMuon, true);
-        dms.getSachMuon();
-
+        if (dms.isTinhTrang() == true) {
+            dms.xuatDon();
+            dms.saveToFile(fileDonMuon, true);
+        } else {
+            System.out.println("Mượn sách thất bại!!");
+        }
     }
     public void UpdateTK() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileTK, false))) {
