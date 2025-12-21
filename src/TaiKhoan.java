@@ -66,9 +66,21 @@ public class TaiKhoan {
             System.out.println("Lỗi: " + e.getMessage());
         }
     }
+    public static boolean tonTaiTaiKhoan(String taiKhoan) {
+        for (TaiKhoan tk : App.danhSachTK) {
+            if (tk.getTaiKhoan().equalsIgnoreCase(taiKhoan)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void addFromFile(String filepath) {
         File file = new File(filepath);
+        App.danhSachTK.clear();
+        App.danhSachSV.clear();
+        App.danhSachTT.clear();
+        App.danhSachQL.clear();
         try {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -87,6 +99,9 @@ public class TaiKhoan {
                     String sdt = arr[6].trim();
                     String diaChi = arr[7].trim();
 
+                    if (tonTaiTaiKhoan(taiKhoan)) {
+                        continue;
+                    }
                     TaiKhoan tk = new TaiKhoan(taiKhoan, matKhau, role);
                     App.danhSachTK.add(tk);
                     if (role.equals("SinhVien")) {

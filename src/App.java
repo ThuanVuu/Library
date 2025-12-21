@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.io.BufferedWriter;
 public class App {
     Scanner sc = new Scanner(System.in);
 
@@ -111,6 +111,8 @@ public class App {
                                 case 2:
                                 case 3:
                                 case 4:
+                                    SuaSV();
+                                    break;
                                 case 5:
                                     System.out.print("Nhập tên sách: ");
                                     String tenSach = sc.nextLine();
@@ -132,11 +134,10 @@ public class App {
                             System.out.println("1. Thêm Sách.");
                             System.out.println("2. Sửa Sách.");
                             System.out.println("3. Xóa Sách");
-                            System.out.println("4. Quản Lý Danh Mục Sách.");
-                            System.out.println("5. Thêm Thông Tin Sinh Viên.");
-                            System.out.println("6. Xóa Thông Tin Sinh Viên.");
-                            System.out.println("7. Sửa Thông Tin Sinh Viên.");
-                            System.out.println("8. Tìm Kiếm Sách.");
+                            System.out.println("4. Thêm Thông Tin Sinh Viên.");
+                            System.out.println("5. Xóa Thông Tin Sinh Viên.");
+                            System.out.println("6. Sửa Thông Tin Sinh Viên.");
+                            System.out.println("7. Tìm Kiếm Sách.");
                             System.out.println("----------------------------------------------------------");
                             System.out.print("Lựa chọn (0 - 8): ");
                             int choice2 = Integer.parseInt(sc.nextLine());
@@ -155,18 +156,21 @@ public class App {
                                     System.out.println("Đã xoá!!");
                                     break;
                                 case 4:
-                                case 5:
                                     this.dangKy(1);
                                     break;
+                                case 5:
+                                    XoaSV();
+                                    break;
                                 case 6:
+                                    SuaSV();
+                                    break;
                                 case 7:
-                                case 8:
                                     System.out.print("Nhập tên sách: ");
                                     String tenSach = sc.nextLine();
                                     this.timKiemSach(tenSach);
                                     break;
                                 default:
-                                    System.out.println("Vui lòng nhập từ 0 - 8!!");
+                                    System.out.println("Vui lòng nhập từ 0 - 7!!");
                                     break;
                             }
                         }
@@ -207,7 +211,7 @@ public class App {
                                     this.dangKy(1);
                                     break;
                                 case 5:
-                                    this.xoa(1);
+                                    XoaSV();
                                     break;
                                 case 6:
                                     SuaSV();
@@ -216,9 +220,11 @@ public class App {
                                     this.dangKy(2);
                                     break;
                                 case 8:
-                                    this.xoa(2);
+                                    xoaTT();
                                     break;
                                 case 9:
+                                    suaTT();
+                                    break;
                                 case 10:
                                     System.out.print("Nhập tên sách: ");
                                     String tenSach = sc.nextLine();
@@ -672,30 +678,39 @@ public class App {
         danhSachSV.add(sv);
         danhSachTK.add(sv);
         sv.saveToFile(fileTK , true);
+
     }
     public void XoaSV()
     {
         System.out.print("Hãy nhập tên sinh viên muốn xóa: ");
         String tencanxoa = sc.nextLine();
         boolean found = false;
-
+        String tkCanXoa = null;
         for (int i = danhSachSV.size() - 1; i >= 0; i--)
         {
             if (danhSachSV.get(i).getTen().equalsIgnoreCase(tencanxoa))
             {
+                tkCanXoa = danhSachSV.get(i).getTaiKhoan();
                 danhSachSV.remove(i);
                 found = true;
                 System.out.println("Đã xóa sinh viên này!!!");
                 break;
             }
         }
-
+        if (found && tkCanXoa != null) {
+            for (int i = danhSachTK.size() - 1; i >= 0; i--) {
+                if (danhSachTK.get(i).getTaiKhoan().equals(tkCanXoa)) {
+                    danhSachTK.remove(i);
+                    break;
+                }
+            }
+        }
         if (!found)
         {
             System.out.println("Không tìm thấy sinh viên cần xóa!");
         }
 
-        this.updateTK();
+        this.UpdateTK();
     }
     public void SuaSV() {
         System.out.print("Hãy nhập tên sinh viên muốn sửa: ");
@@ -705,7 +720,6 @@ public class App {
 
         for (SinhVien sv : danhSachSV) {
             if (sv.getTen().equalsIgnoreCase(tenCanSua)) {
-
                 System.out.println("Nhập thông tin mới:");
                 sv.NhapTT();
 
@@ -720,7 +734,7 @@ public class App {
             System.out.println("Không tìm thấy sinh viên!");
             return;
         }
-        this.updateTK();
+        this.UpdateTK();
     }
 
     public void themTT()
@@ -728,44 +742,51 @@ public class App {
         ThuThu tt = new ThuThu();
         tt.NhapTT();
         danhSachTT.add(tt);
+        danhSachTK.add(tt);
         tt.saveToFile(fileTK , true);
     }
 
     public void xoaTT()
     {
-        System.out.print("Hãy nhập tên Thủ Thư muốn xóa: ");
-        String name = sc.nextLine();
+        System.out.print("Hãy nhập tên thủ thư muốn xóa: ");
+        String TencanXoa = sc.nextLine();
         boolean found = false;
-
+        String tkCanXoa = null;
         for (int i = danhSachTT.size() - 1; i >= 0; i--)
         {
-            if (danhSachTT.get(i).getTen().equalsIgnoreCase(name))
+            if (danhSachTT.get(i).getTen().equalsIgnoreCase(TencanXoa))
             {
+                tkCanXoa = danhSachTT.get(i).getTaiKhoan();
                 danhSachTT.remove(i);
                 found = true;
-                System.out.println("Đã xóa thành công!");
+                System.out.println("Đã xóa thủ thư này!!!");
                 break;
             }
         }
-
+        if (found && tkCanXoa != null) {
+            for (int i = danhSachTK.size() - 1; i >= 0; i--) {
+                if (danhSachTK.get(i).getTaiKhoan().equals(tkCanXoa)) {
+                    danhSachTK.remove(i);
+                    break;
+                }
+            }
+        }
         if (!found)
         {
-            System.out.println("Không tìm thấy Thủ Thư cần xóa!");
+            System.out.println("Không tìm thấy thủ thư cần xóa!");
         }
 
-        this.updateTK();
+        this.UpdateTK();
     }
 
-    public void suaTT()
-    {
+    public void suaTT() {
         System.out.print("Hãy nhập tên thủ thư muốn sửa: ");
-        String tenTTCanSua = sc.nextLine();
+        String tenCanSua = sc.nextLine();
 
         boolean found = false;
 
         for (ThuThu tt : danhSachTT) {
-            if (tt.getTen().equalsIgnoreCase(tenTTCanSua)) {
-
+            if (tt.getTen().equalsIgnoreCase(tenCanSua)) {
                 System.out.println("Nhập thông tin mới:");
                 tt.NhapTT();
 
@@ -780,7 +801,7 @@ public class App {
             System.out.println("Không tìm thấy thủ thư!");
             return;
         }
-        this.updateTK();
+        this.UpdateTK();
     }
 
     public void muonSach(String tenTK) {
@@ -792,5 +813,28 @@ public class App {
         dms.getSachMuon();
 
     }
+    public void UpdateTK() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileTK, false))) {
+
+            for (SinhVien sv : danhSachSV) {
+                bw.write(sv.toString());
+                bw.newLine();
+            }
+
+            for (ThuThu tt : danhSachTT) {
+                bw.write(tt.toString());
+                bw.newLine();
+            }
+
+            for (QuanLy ql : danhSachQL) {
+                bw.write(ql.toString());
+                bw.newLine();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 }
