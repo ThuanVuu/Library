@@ -71,6 +71,9 @@ public class Sach {
     }
 
     public static void addFromFile(String filepath) {
+        if (App.khoSach != null) {
+            App.khoSach.clear();
+        }
         File file = new File(filepath);
         try {
             FileReader fr = new FileReader(file);
@@ -89,6 +92,7 @@ public class Sach {
                     String nguoiMuon = arr[6].trim();
 
                     Sach sach = new Sach(tacGia, tenSach, NXB, Integer.parseInt(maSach), ngayMuon, nguoiMuon, ngayTra);
+
                     App.khoSach.add(sach);
                 } catch (Exception e) {
                     System.out.println("Xảy ra lỗi!!");
@@ -99,6 +103,15 @@ public class Sach {
         } catch (Exception e) {
             System.out.println("Lỗi không thể đọc file!!");
         }
+    }
+
+    public static boolean tonTaiSach(String tenSach) {
+        for (Sach s : App.khoSach) {
+            if (s.getTenSach().equalsIgnoreCase(tenSach)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getTacGia() {

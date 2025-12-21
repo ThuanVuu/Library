@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class DonMuonSach {
     Scanner sc = new Scanner(System.in);
     App app = new App();
+    public static final int soNgay = 20;
 
     private String ngayMuon;
     private String ngayTra;
@@ -28,13 +29,13 @@ public class DonMuonSach {
 
     public void taoDon() {
         this.setNgayMuon();
-        this.setNgayTra(20);
+        this.setNgayTra(soNgay);
         app.inSach();
         this.sachMuon = app.locSachTheoTen();
         if (this.sachMuon.equalsIgnoreCase("Không tìm thấy sách trùng tên bạn muốn")) {
             this.tinhTrang = false;
         } else {
-            app.setTTMuonSach(ngayMuon, ngayTra, sachMuon);
+            app.setTTMuonSach(ngayMuon, ngayTra, sachMuon, nguoiMuon);
             this.tinhTrang = true;
         }
     }
@@ -82,6 +83,9 @@ public class DonMuonSach {
     }
 
     public static void addFromFile(String filepath) {
+        if (App.donMuonSach != null) {
+            App.donMuonSach.clear();
+        }
         File file = new File(filepath);
         try {
             FileReader fr = new FileReader(file);

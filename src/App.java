@@ -19,6 +19,7 @@ public class App {
     public static List<DonMuonSach> donMuonSach = new ArrayList<>();
 
     public App() {
+        DonMuonSach.addFromFile(fileDonMuon);
         Sach.addFromFile(fileSach);
         TaiKhoan.addFromFile(fileTK);
     }
@@ -579,7 +580,7 @@ public class App {
     }
 
     public static void inSach() {
-        for (int i = 0; i < khoSach.size() - 1; i++) {
+        for (int i = 0; i < khoSach.size(); i++) {
             System.out.println(khoSach.get(i));
         }
     }
@@ -649,7 +650,7 @@ public class App {
 
         if (count >= 1) {
             System.out.println("Danh sách cùng tên: ");
-            for (int i = 0; i < arr.size() - 1; i++) {
+            for (int i = 0; i < arr.size(); i++) {
                 System.out.println((i + 1) + ". " + arr.get(i).getTenSach());
             }
 
@@ -810,11 +811,12 @@ public class App {
         this.UpdateTK();
     }
 
-    public void setTTMuonSach(String ngayMuon, String ngayTra, String tenSach) {
+    public void setTTMuonSach(String ngayMuon, String ngayTra, String tenSach, String nguoiMuon) {
         for (Sach s : khoSach) {
             if (s.getTenSach().equalsIgnoreCase(tenSach)) {
                 s.setNgayMuon(ngayMuon);
                 s.setNgayTra(ngayTra);
+                s.setNguoiMuon(nguoiMuon);
             }
         }
         this.updateSach();
